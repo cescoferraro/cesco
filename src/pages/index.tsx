@@ -1,9 +1,9 @@
-import React from "react"
+import * as React from "react"
 import {navigate} from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-class IndexPage extends React.Component {
+class IndexPage extends React.Component<any,any> {
     render() {
         const siteTitle = "Gatsby Starter Personal Website"
 
