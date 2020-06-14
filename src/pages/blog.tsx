@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "react"
 import {graphql, Link, navigate} from "gatsby"
 
 import Bio from "../components/bio"
