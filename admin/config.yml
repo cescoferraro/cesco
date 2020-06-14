@@ -3,7 +3,7 @@ backend:
   repo: cescoferraro/blog
 
 media_folder: content/assets
-public_folder: ../assets
+public_folder: assets
 
 collections:
   - name: blog
