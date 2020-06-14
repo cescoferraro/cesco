@@ -26,13 +26,13 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-0c6d34aafb3c24347cc3.js"
+    "url": "webpack-runtime-578f5e2132f7a90b22c8.js"
   },
   {
     "url": "framework-20335242239071f73386.js"
   },
   {
-    "url": "styles.49f105d1dc90e941bcab.css"
+    "url": "styles.26c00ae31b27f11439e6.css"
   },
   {
     "url": "styles-076c998adbcdbd0eb3e8.js"
@@ -41,14 +41,14 @@ self.__precacheManifest = [
     "url": "532a2f07-83cd124dbd65fe09d951.js"
   },
   {
-    "url": "app-9d8012fbdade7a165312.js"
+    "url": "app-ecac0a576322f4518c67.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-e385def15e29b6ed02a7.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "bac0ced5ac2fae1e9d2daa301e4aa595"
+    "revision": "cf62d7617474841cb03b4f59c99957e4"
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
@@ -56,7 +56,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "730586cf2725c2d4e9040cc039b8cfd7"
+    "revision": "4553132b79b1ff8ad5e54c91cb40e7d3"
   },
   {
     "url": "manifest.webmanifest",
@@ -79,12 +79,12 @@ const { NavigationRoute } = workbox.routing
 
 const navigationRoute = new NavigationRoute(async ({ event }) => {
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^/cesco`), ``)
+  pathname = pathname.replace(new RegExp(`^/cesco/cesco`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/cesco/app-9d8012fbdade7a165312.js`))) {
+  if (!resources || !(await caches.match(`/cesco/cesco/app-ecac0a576322f4518c67.js`))) {
     return await fetch(event.request)
   }
 
@@ -97,7 +97,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/cesco/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/cesco/cesco/offline-plugin-app-shell-fallback/index.html`
   return await caches.match(offlineShell)
 })
 
