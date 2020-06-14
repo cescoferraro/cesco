@@ -1,4 +1,5 @@
 module.exports = {
+    pathPrefix: "/cesco",
     siteMetadata: {
         // edit below
         title: `Gatsby Blog`,
