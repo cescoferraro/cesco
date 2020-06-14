@@ -41,14 +41,14 @@ self.__precacheManifest = [
     "url": "532a2f07-83cd124dbd65fe09d951.js"
   },
   {
-    "url": "app-9d8012fbdade7a165312.js"
+    "url": "app-7735090c61162a4f6358.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-e385def15e29b6ed02a7.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "8042ae281e0bb6102ff93d2e4d2d5de7"
+    "revision": "4537c077b17dc24a99b4d2d633eee24a"
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
@@ -56,7 +56,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "51b9516f8f700bab768fbb68b978222a"
+    "revision": "cb4b43c2fdd2a535b5e6165a3356038a"
   },
   {
     "url": "manifest.webmanifest",
@@ -84,7 +84,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/cesco/app-9d8012fbdade7a165312.js`))) {
+  if (!resources || !(await caches.match(`/cesco/app-7735090c61162a4f6358.js`))) {
     return await fetch(event.request)
   }
 
