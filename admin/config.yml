@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: cescoferraro/blog
+  repo: cescoferraro/cesco
 
 media_folder: content/assets
 public_folder: assets
