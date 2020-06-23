@@ -20,6 +20,12 @@ module.exports = {
         `gatsby-plugin-typescript`,
         `gatsby-plugin-feed-mdx`,
         {
+            resolve: `gatsby-plugin-graphql-codegen`,
+            options: {
+                fileName: `src/global.ts`,
+            },
+        },
+        {
             resolve: `gatsby-source-filesystem`,
             options: {
                 path: `${__dirname}/content/blog`,
