@@ -5,7 +5,7 @@ module.exports = {
         title: `Gatsby Blog`,
         author: `@cescoferraro`,
         description: `A Gatsby blog powered by Netlify CMS.`,
-        siteUrl: `https://github.com/cescoferraro/blog/`,
+        siteUrl: `https://github.com/cescoferraro/cesco/`,
         social: {
             twitter: `cescoferraro`,
         },
@@ -20,10 +20,10 @@ module.exports = {
         `gatsby-plugin-typescript`,
         `gatsby-plugin-feed-mdx`,
         {
-            resolve: `gatsby-plugin-graphql-codegen`,
+            resolve: "gatsby-plugin-netlify-cache",
             options: {
-                fileName: `src/global.ts`,
-            },
+                cachePublic: true
+            }
         },
         {
             resolve: `gatsby-source-filesystem`,
@@ -95,5 +95,11 @@ module.exports = {
                 pathToConfigModule: `src/utils/typography`,
             },
         },
+        // {
+        //     resolve: `gatsby-plugin-graphql-codegen`,
+        //     options: {
+        //         fileName: `src/global.ts`,
+        //     },
+        // },
     ],
 }
