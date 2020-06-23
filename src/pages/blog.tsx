@@ -12,7 +12,6 @@ const Blog = (props: { data?: BlogQueryQuery } & any) => {
   const {data} = props
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMdx.edges
-  const posts = data.allMdx.edges
   return (
     <Layout location={props.location} title={siteTitle}>
       <SEO title="All posts"/>
