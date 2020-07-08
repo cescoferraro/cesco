@@ -4,7 +4,7 @@ date: 2020-06-06T01:22:55.506Z
 title: Awesome Images
 description: Fix for gatsby-plugin-mdx and gatsby-remark-images
 ---
-![Great Gatsby](/../assets/great2.jpg "Great Gatsby")
+![Great Gatsby](/../assets/great2.jpg "Great Gatsby Kerpen")
 
 ## Netlify CMS Media Configuration
 
@@ -17,7 +17,7 @@ public_folder: ../assets
 
 Docs: https://www.netlifycms.org/docs/configuration-options/#media-and-public-folders.
 
-## Gatsby Plugins
+## Gatsby Plugins Kerpen
 
 From [@cwgw](https://github.com/cwgw):
 
