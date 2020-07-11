@@ -22,6 +22,7 @@ collections:
     fields:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
+      - { name: name, label: Name}
       - { name: title, label: Title }
       - { name: description, label: Description }
   - name: portifolio
