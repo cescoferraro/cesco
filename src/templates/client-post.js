@@ -1,11 +1,9 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-
-import Bio from "../components/bio"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import Bio from "../components/bio"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -31,13 +29,12 @@ class BlogPostTemplate extends React.Component {
         >
           {post.frontmatter.date}
         </p>
-        <MDXRenderer>{post.body}</MDXRenderer>
         <hr
           style={{
             marginBottom: rhythm(1),
           }}
         />
-        <Bio />
+        <Bio/>
 
         <ul
           style={{
@@ -71,22 +68,22 @@ class BlogPostTemplate extends React.Component {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
+    query BlogPostBySlug($slug: String!) {
+        site {
+            siteMetadata {
+                title
+                author
+            }
+        }
+        mdx(fields: { slug: { eq: $slug } }) {
+            id
+            excerpt(pruneLength: 160)
+            body
+            frontmatter {
+                title
+                date(formatString: "MMMM DD, YYYY")
+                description
+            }
+        }
     }
-    mdx(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      body
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-        description
-      }
-    }
-  }
 `

@@ -8,26 +8,27 @@ import SEO from "../components/seo"
 import {BlogQueryQuery} from "../global";
 import {rhythm} from "../utils/typography"
 
-const Blog = (props: { data?: BlogQueryQuery } & any) => {
+const Client = (props: { data?: BlogQueryQuery } & any) => {
   const {data} = props
   const siteTitle = data.site.siteMetadata.title
+  console.log(data)
   const posts = data.allMdx.edges
   return (
     <Layout location={props.location} title={siteTitle}>
       <SEO title="All posts"/>
       <Bio/>
       <div style={{margin: "20px 0 40px"}}>
-        {posts.map(({node}) => {
+        {posts.map(({node}, index:number) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
-            <div key={node.fields.slug}>
+            <div key={index}>
               <a
                 style={{
                   marginBottom: rhythm(1 / 4),
                 }}
 
                 onClick={() => {
-                  navigate("/blog" + node.fields.slug)
+                  navigate("/client" + node.fields.slug)
                 }}
               >
                 {title}
@@ -49,7 +50,7 @@ const Blog = (props: { data?: BlogQueryQuery } & any) => {
   )
 };
 
-export default Blog
+export default Client
 
 export const pageQuery = graphql`
     query BlogQuery {
@@ -58,7 +59,8 @@ export const pageQuery = graphql`
                 title
             }
         }
-        allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+        allMdx {
+            totalCount
             edges {
                 node {
                     excerpt

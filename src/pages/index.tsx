@@ -16,7 +16,7 @@ class IndexPage extends React.Component<any,any> {
                 <button
                     onClick={() => {
                         console.log(33)
-                        navigate("/blog")
+                        navigate("/client")
                     }}
                 >
                     Go to Blog
