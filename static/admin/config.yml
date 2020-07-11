@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: cescoferraro/cesco
+  repo: agenciaglobal/web
 
 media_folder: content/assets
 public_folder: assets

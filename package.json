@@ -63,7 +63,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/agenciaglobal/web.git"
   },
   "scripts": {
     "build": "gatsby build",
@@ -72,6 +72,6 @@
     "start": "yarn develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "deploy": "PATH_PREFIX=/cesco gatsby build --prefix-paths && gh-pages -d public -r https://$GH_TOKEN@github.com/cescoferraro/cesco.git"
+    "deploy": "PATH_PREFIX=/web gatsby build --prefix-paths && gh-pages -d public -r https://$GH_TOKEN@github.com/agenciaglobal/web.git"
   }
 }

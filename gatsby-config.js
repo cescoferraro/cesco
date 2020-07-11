@@ -2,12 +2,12 @@ module.exports = {
     pathPrefix: process.env.PATH_PREFIX || "",
     siteMetadata: {
         // edit below
-        title: `Gatsby Blog`,
-        author: `@cescoferraro`,
+        title: `Agencia Global Website`,
+        author: `@agenciaglobal`,
         description: `A Gatsby blog powered by Netlify CMS.`,
-        siteUrl: `https://github.com/cescoferraro/cesco/`,
+        siteUrl: `https://github.com/agenciaglobal/web/`,
         social: {
-            twitter: `cescoferraro`,
+            twitter: `@agenciaglobal`,
         },
     },
     plugins: [
