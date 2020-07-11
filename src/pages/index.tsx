@@ -1,3 +1,4 @@
+import { Typography } from "@material-ui/core"
 import { graphql, navigate } from "gatsby"
 import * as React from "react"
 import Layout from "../components/layout"
@@ -6,7 +7,9 @@ import SEO from "../components/seo"
 const IndexPage = (props: any) => {
   const siteTitle = "Gatsby Starter Personal Website"
   const clients = props.data.allMdx.edges
+  const portifolio = props.data.portifolio.edges
   console.log(clients)
+  console.log(portifolio)
 
   return (
     <Layout location={props.location} title={siteTitle}>
@@ -14,12 +17,12 @@ const IndexPage = (props: any) => {
         title="Home"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
       />
+      <h2>CLIENTES</h2>
       {
-        clients.map((d, i: number)=>{
+        clients.map((d, i: number) => {
           return (
             <div key={i}>
-              <h2>{d.node.frontmatter.name}</h2>
-              <h2>{d.node.frontmatter.title}</h2>
+              <Typography>{`#${i.toString()} ${d.node.frontmatter.name} ${d.node.frontmatter.description}`}</Typography>
             </div>
           )
         })
@@ -45,9 +48,26 @@ export const pageQuery = graphql`
                 title
             }
         }
-        allMdx(filter: {fileAbsolutePath: {regex: "/content/client/"}}) {
+        portifolio: allMdx(filter: {fileAbsolutePath: {regex: "/content/portifolio/"}}) {
             edges {
                 node {
+                    fileAbsolutePath
+                    excerpt
+                    fields {
+                        slug
+                    }
+                    frontmatter {
+                        date(formatString: "MMMM DD, YYYY")
+                        title
+                        description
+                    }
+                }
+            }
+        }
+        allMdx : allMdx(filter: {fileAbsolutePath: {regex: "/content/client/"}}) {
+            edges {
+                node {
+                    fileAbsolutePath
                     excerpt
                     fields {
                         slug
@@ -61,6 +81,5 @@ export const pageQuery = graphql`
                 }
             }
         }
-
     }
 `
