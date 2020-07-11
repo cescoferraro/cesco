@@ -6,10 +6,12 @@ import SEO from "../components/seo"
 
 const IndexPage = (props: any) => {
   const siteTitle = "Gatsby Starter Personal Website"
+  console.log(props.data)
+  // const clients = []
   const clients = props.data.allMdx.edges
   const portifolio = props.data.portifolio.edges
-  console.log(clients)
-  console.log(portifolio)
+  // console.log(clients)
+  // console.log(portifolio)
 
   return (
     <Layout location={props.location} title={siteTitle}>
@@ -17,6 +19,16 @@ const IndexPage = (props: any) => {
         title="Home"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
       />
+      <h2>Projetos</h2>
+      {
+        portifolio.map((d, i: number) => {
+          return (
+            <div key={i}>
+              <Typography>{`#${i.toString()} ${d.node.frontmatter.title} ${d.node.frontmatter.description}`}</Typography>
+            </div>
+          )
+        })
+      }
       <h2>CLIENTES</h2>
       {
         clients.map((d, i: number) => {
@@ -48,7 +60,7 @@ export const pageQuery = graphql`
                 title
             }
         }
-        portifolio: allMdx(filter: {fileAbsolutePath: {regex: "/content/portifolio/"}}) {
+        portifolio : allMdx(filter: {fileAbsolutePath: {regex: "/content/portifolio/"}}) {
             edges {
                 node {
                     fileAbsolutePath
