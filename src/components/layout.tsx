@@ -6,9 +6,10 @@ import { rhythm, scale } from "../utils/typography"
 declare const __PATH_PREFIX__: string
 
 const Layout = (props: any) => {
+  const { context = "news" } = props
   const { location, title, children } = props
   const rootPath = `${__PATH_PREFIX__}/`
-  const blogPath = `${__PATH_PREFIX__}/blog/`
+  const blogPath = `${__PATH_PREFIX__}/${context}/`
   let header
 
   if (location.pathname === rootPath || location.pathname === blogPath) {
@@ -26,7 +27,7 @@ const Layout = (props: any) => {
             textDecoration: `none`,
             color: `inherit`,
           }}
-          to={location.pathname === blogPath ? `/blog/` : `/`}
+          to={location.pathname === blogPath ? `/${context}/` : `/`}
         >
           {title}
         </Link>

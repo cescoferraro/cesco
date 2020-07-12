@@ -56,18 +56,16 @@ function extracted(key, posts, createPage, blogPost) {
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-
-  const blogPost = path.resolve(`./src/templates/client-post.js`)
+  const newsTemplate = path.resolve(`./src/templates/news-post.tsx`)
+  const portifolioTemplate = path.resolve(`./src/templates/portifolio-post.tsx`)
   return graphql(s).then((result) => {
     if (result.errors) {
       throw result.errors
     }
-
-    // Create blog posts pages.
     const posts = result.data.portifolio.edges
-    extracted("portifolio", posts, createPage, blogPost)
+    extracted("portifolio", posts, createPage, portifolioTemplate)
     const news = result.data.news.edges
-    extracted("news", news, createPage, blogPost)
+    extracted("news", news, createPage, newsTemplate)
     return null
   })
 }
