@@ -1,4 +1,4 @@
-import { Typography } from "@material-ui/core"
+import { Button, Typography } from "@material-ui/core"
 import { graphql, navigate } from "gatsby"
 import * as React from "react"
 import Layout from "../components/layout"
@@ -35,6 +35,14 @@ const IndexPage = (props: any) => {
           return (
             <div key={i}>
               <Typography>{`#${i.toString()} ${d.node.frontmatter.name} ${d.node.frontmatter.description}`}</Typography>
+              <Button
+                onClick={() => {
+                  navigate("/client" + d.node.fields.slug)
+                }}
+              >
+                GO
+
+              </Button>
             </div>
           )
         })
@@ -42,10 +50,18 @@ const IndexPage = (props: any) => {
       <button
         onClick={() => {
           console.log(33)
-          navigate("/client")
+          navigate("/portifolio")
         }}
       >
-        Go to Blog
+        Go to Portifolio
+      </button>
+      <button
+        onClick={() => {
+          console.log(33)
+          navigate("/news")
+        }}
+      >
+        Go to News
       </button>
     </Layout>
   )
@@ -60,7 +76,9 @@ export const pageQuery = graphql`
                 title
             }
         }
-        portifolio : allMdx(filter: {fileAbsolutePath: {regex: "/content/portifolio/"}}) {
+        portifolio : allMdx(
+            filter: {fileAbsolutePath: {regex: "/content/portifolio/"}}
+        ) {
             edges {
                 node {
                     fileAbsolutePath

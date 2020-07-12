@@ -1,15 +1,15 @@
-import {graphql, Link, navigate} from "gatsby"
+import { graphql, Link, navigate } from "gatsby"
 import * as React from "react"
 
 import Bio from "../components/bio"
 import Button from "../components/button"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import {BlogQueryQuery} from "../global";
-import {rhythm} from "../utils/typography"
+import { BlogQueryQuery } from "../global"
+import { rhythm } from "../utils/typography"
 
-const Client = (props: { data?: BlogQueryQuery } & any) => {
-  const {data} = props
+const News = (props: { data?: BlogQueryQuery } & any) => {
+  const { data } = props
   const siteTitle = data.site.siteMetadata.title
   console.log(data)
   const posts = data.allMdx.edges
@@ -17,8 +17,8 @@ const Client = (props: { data?: BlogQueryQuery } & any) => {
     <Layout location={props.location} title={siteTitle}>
       <SEO title="All posts"/>
       <Bio/>
-      <div style={{margin: "20px 0 40px"}}>
-        {posts.map(({node}, index:number) => {
+      <div style={{ margin: "20px 0 40px" }}>
+        {posts.map(({ node }, index: number) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
             <div key={index}>
@@ -48,18 +48,20 @@ const Client = (props: { data?: BlogQueryQuery } & any) => {
       </Link>
     </Layout>
   )
-};
+}
 
-export default Client
+export default News
 
 export const pageQuery = graphql`
-    query BlogQuery {
+    query NewsQuery{
         site {
             siteMetadata {
                 title
             }
         }
-        allMdx {
+        allMdx(
+            filter: {fileAbsolutePath: {regex: "/content/news/"}}
+        ) {
             totalCount
             edges {
                 node {

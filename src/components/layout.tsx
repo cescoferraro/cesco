@@ -46,7 +46,7 @@ const Layout = (props: any) => {
             textDecoration: `none`,
             color: `inherit`,
           }}
-          to={`/client/`}
+          to={`/`}
         >
           {title}
         </Link>

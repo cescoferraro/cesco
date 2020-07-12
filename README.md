@@ -10,7 +10,7 @@
 
 <img alt="screesnhot" src="./screenshot.png">
 
-This starter is a fork of Gatsby Starter Client, the most popular starter by far – with second place being Gatsby Starter Netlify CMS. So I decided to combine the 2!
+This starter is a fork of Gatsby Starter News, the most popular starter by far – with second place being Gatsby Starter Netlify CMS. So I decided to combine the 2!
 
 ## 🚀 Quick start
 
