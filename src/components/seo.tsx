@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby"
 import * as React from "react"
-import * as Helmet from "react-helmet"
+import Helmet from "react-helmet"
 
 const SEO = ({
   description = "",
