@@ -117,6 +117,26 @@ const IndexPage = (props: any) => {
           </CardContent>
         </Card>
       </Box>
+      <Box style={{ marginTop: 24 }}>
+        <Card>
+          <CardActions>
+            <Button
+              onClick={() => navigate("/about")}
+              size="small"
+              color="primary"
+            >
+              Saiba + Sobre a Global
+            </Button>
+            <Button
+              onClick={() => navigate("/contact")}
+              size="small"
+              color="primary"
+            >
+              Contato
+            </Button>
+          </CardActions>
+        </Card>
+      </Box>
     </Layout>
   )
 }
