@@ -1,13 +1,13 @@
-import {Link} from "gatsby"
+import { Link } from "gatsby"
 import * as React from "react"
 import styled from "styled-components"
-import {rhythm, scale} from "../utils/typography"
+import { rhythm, scale } from "../utils/typography"
 
-declare const __PATH_PREFIX__: string;
+declare const __PATH_PREFIX__: string
 
 const Layout = (props: any) => {
-  const {location, title, children} = props
-  const rootPath = `${__PATH_PREFIX__}/`;
+  const { location, title, children } = props
+  const rootPath = `${__PATH_PREFIX__}/`
   const blogPath = `${__PATH_PREFIX__}/blog/`
   let header
 
@@ -73,7 +73,7 @@ const Layout = (props: any) => {
       </Footer>
     </Wrapper>
   )
-};
+}
 
 const Wrapper = styled.div`
   min-height: 100vh;

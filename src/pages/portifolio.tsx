@@ -15,8 +15,8 @@ const News = (props: { data?: BlogQueryQuery } & any) => {
   const posts = data.allMdx.edges
   return (
     <Layout location={props.location} title={siteTitle}>
-      <SEO title="All posts"/>
-      <Bio/>
+      <SEO title="All posts" />
+      <Bio />
       <div style={{ margin: "20px 0 40px" }}>
         {posts.map(({ node }, index: number) => {
           const title = node.frontmatter.title || node.fields.slug
@@ -26,7 +26,6 @@ const News = (props: { data?: BlogQueryQuery } & any) => {
                 style={{
                   marginBottom: rhythm(1 / 4),
                 }}
-
                 onClick={() => {
                   navigate("/portifolio" + node.fields.slug)
                 }}
@@ -53,29 +52,27 @@ const News = (props: { data?: BlogQueryQuery } & any) => {
 export default News
 
 export const pageQuery = graphql`
-    query BlogQuery {
-        site {
-            siteMetadata {
-                title
-            }
-        }
-        allMdx(
-            filter: {fileAbsolutePath: {regex: "/content/portifolio/"}}
-        ) {
-            totalCount
-            edges {
-                node {
-                    excerpt
-                    fields {
-                        slug
-                    }
-                    frontmatter {
-                        date(formatString: "MMMM DD, YYYY")
-                        title
-                        description
-                    }
-                }
-            }
-        }
+  query BlogQuery {
+    site {
+      siteMetadata {
+        title
+      }
     }
+    allMdx(filter: { fileAbsolutePath: { regex: "/content/portifolio/" } }) {
+      totalCount
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+          }
+        }
+      }
+    }
+  }
 `

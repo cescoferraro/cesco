@@ -1,7 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-
 let s = `
     {
       portifolio: allMdx(
@@ -39,7 +38,7 @@ let s = `
     }
   `
 
-function extracted(key,posts, createPage, blogPost) {
+function extracted(key, posts, createPage, blogPost) {
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
@@ -59,7 +58,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/client-post.js`)
-  return graphql(s).then(result => {
+  return graphql(s).then((result) => {
     if (result.errors) {
       throw result.errors
     }
