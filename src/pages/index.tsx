@@ -1,4 +1,12 @@
-import { Button, Typography } from "@material-ui/core"
+import { Box, Button, Typography } from "@material-ui/core"
+import Card from "@material-ui/core/Card"
+import CardActions from "@material-ui/core/CardActions"
+import CardContent from "@material-ui/core/CardContent"
+import List from "@material-ui/core/List"
+import ListItem from "@material-ui/core/ListItem"
+import ListItemIcon from "@material-ui/core/ListItemIcon"
+import ListItemText from "@material-ui/core/ListItemText"
+import DraftsIcon from "@material-ui/icons/Drafts"
 import { graphql, navigate } from "gatsby"
 import * as React from "react"
 import Layout from "../components/layout"
@@ -6,69 +14,98 @@ import SEO from "../components/seo"
 
 const IndexPage = (props: any) => {
   const siteTitle = "Agencia Global"
-  console.log(props.data)
-  // const clients = []
   const clients = props.data.clients.edges
   const news = props.data.news.edges
   const projects = props.data.projects.edges
-  // console.log(clients)
-  // console.log(projects)
-
   return (
     <Layout location={props.location} title={siteTitle}>
       <SEO
         title="Home"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
       />
-      <h2>News</h2>
-      {
-        news.map((d, i: number) => {
-          return (
-            <div key={i}>
-              <Typography>{`#${i.toString()} ${d.node.frontmatter.title} ${d.node.frontmatter.description}`}</Typography>
-
-              <Button
-                onClick={() => {
-                  navigate("/news" + d.node.fields.slug)
-                }}
-              >
-                GO
-
-              </Button>
-            </div>
-          )
-        })
-      }
-      <h2>Projetos</h2>
-      {
-        projects.map((d, i: number) => {
-          return (
-            <div key={i}>
-              <Typography>{`#${i.toString()} ${d.node.frontmatter.title} ${d.node.frontmatter.description}`}</Typography>
-
-              <Button
-                onClick={() => {
-                  navigate("/portifolio" + d.node.fields.slug)
-                }}
-              >
-                GO
-
-              </Button>
-            </div>
-          )
-        })
-      }
-      <h2>CLIENTES</h2>
-      {
-        clients.map((d, i: number) => {
-          return (
-            <div key={i}>
-              <Typography>{`#${i.toString()} ${d.node.frontmatter.name} ${d.node.frontmatter.description}`}</Typography>
-
-            </div>
-          )
-        })
-      }
+      <Box style={{ marginTop: 24 }}>
+        <Card>
+          <CardContent>
+            <Typography variant="h5" component="h2">
+              News
+            </Typography>
+            <List>
+              {news.map((d, i: number) => (
+                <ListItem key={i}>
+                  <ListItemText>
+                    {`#${i.toString()} ${d.node.frontmatter.title} ${d.node.frontmatter.description}`}
+                  </ListItemText>
+                  <Button
+                    variant={"contained"}
+                    onClick={() => {
+                      navigate("/news" + d.node.fields.slug)
+                    }}
+                  >
+                    Go
+                  </Button>
+                </ListItem>
+              ))}
+            </List>
+          </CardContent>
+          <CardActions>
+            <Button onClick={() => navigate("/news")} size="small" color="primary">
+              Listar
+            </Button>
+          </CardActions>
+        </Card>
+      </Box>
+      <Box style={{ marginTop: 24 }}>
+        <Card>
+          <CardContent>
+            <Typography variant="h5" component="h2">
+              Projetos
+            </Typography>
+            <List>
+              {projects.map((d, i: number) => (
+                <ListItem key={i}>
+                  <ListItemText>
+                    {`#${i.toString()} ${d.node.frontmatter.title} ${d.node.frontmatter.description}`}
+                  </ListItemText>
+                  <Button
+                    variant={"contained"}
+                    onClick={() => {
+                      navigate("/portifolio" + d.node.fields.slug)
+                    }}
+                  >
+                    Go
+                  </Button>
+                </ListItem>
+              ))}
+            </List>
+          </CardContent>
+          <CardActions>
+            <Button onClick={() => navigate("/portifolio")} size="small" color="primary">
+              Listar
+            </Button>
+          </CardActions>
+        </Card>
+      </Box>
+      <Box style={{ marginTop: 24 }}>
+        <Card>
+          <CardContent>
+            <Typography variant="h5" component="h2">
+              Clientes
+            </Typography>
+            <List>
+              {clients.map((d, i: number) => (
+                <ListItem key={i}>
+                  <ListItemText>
+                    {`#${i.toString()} ${d.node.frontmatter.name} ${d.node.frontmatter.description}`}
+                  </ListItemText>
+                  <ListItemIcon>
+                    <DraftsIcon/>
+                  </ListItemIcon>
+                </ListItem>
+              ))}
+            </List>
+          </CardContent>
+        </Card>
+      </Box>
     </Layout>
   )
 }
