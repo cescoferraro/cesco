@@ -3,7 +3,6 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
-import Bio from "../components/bio"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -34,8 +33,6 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1),
           }}
         />
-        <Bio/>
-
         <ul
           style={{
             display: `flex`,
@@ -68,22 +65,22 @@ class BlogPostTemplate extends React.Component {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-    query BlogPostBySlug($slug: String!) {
-        site {
-            siteMetadata {
-                title
-                author
-            }
-        }
-        mdx(fields: { slug: { eq: $slug } }) {
-            id
-            excerpt(pruneLength: 160)
-            body
-            frontmatter {
-                title
-                date(formatString: "MMMM DD, YYYY")
-                description
-            }
-        }
+  query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+        author
+      }
     }
+    mdx(fields: { slug: { eq: $slug } }) {
+      id
+      excerpt(pruneLength: 160)
+      body
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+        description
+      }
+    }
+  }
 `

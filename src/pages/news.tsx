@@ -1,7 +1,6 @@
 import { graphql, Link, navigate } from "gatsby"
 import * as React from "react"
 
-import Bio from "../components/bio"
 import Button from "../components/button"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -16,7 +15,6 @@ const News = (props: { data?: BlogQueryQuery } & any) => {
   return (
     <Layout location={props.location} title={siteTitle}>
       <SEO title="All posts" />
-      <Bio />
       <div style={{ margin: "20px 0 40px" }}>
         {posts.map(({ node }, index: number) => {
           const title = node.frontmatter.title || node.fields.slug
