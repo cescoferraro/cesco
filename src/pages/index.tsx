@@ -5,13 +5,14 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const IndexPage = (props: any) => {
-  const siteTitle = "Gatsby Starter Personal Website"
+  const siteTitle = "Agencia Global"
   console.log(props.data)
   // const clients = []
-  const clients = props.data.allMdx.edges
-  const portifolio = props.data.portifolio.edges
+  const clients = props.data.clients.edges
+  const news = props.data.news.edges
+  const projects = props.data.projects.edges
   // console.log(clients)
-  // console.log(portifolio)
+  // console.log(projects)
 
   return (
     <Layout location={props.location} title={siteTitle}>
@@ -19,12 +20,40 @@ const IndexPage = (props: any) => {
         title="Home"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
       />
-      <h2>Projetos</h2>
+      <h2>News</h2>
       {
-        portifolio.map((d, i: number) => {
+        news.map((d, i: number) => {
           return (
             <div key={i}>
               <Typography>{`#${i.toString()} ${d.node.frontmatter.title} ${d.node.frontmatter.description}`}</Typography>
+
+              <Button
+                onClick={() => {
+                  navigate("/news" + d.node.fields.slug)
+                }}
+              >
+                GO
+
+              </Button>
+            </div>
+          )
+        })
+      }
+      <h2>Projetos</h2>
+      {
+        projects.map((d, i: number) => {
+          return (
+            <div key={i}>
+              <Typography>{`#${i.toString()} ${d.node.frontmatter.title} ${d.node.frontmatter.description}`}</Typography>
+
+              <Button
+                onClick={() => {
+                  navigate("/portifolio" + d.node.fields.slug)
+                }}
+              >
+                GO
+
+              </Button>
             </div>
           )
         })
@@ -35,34 +64,11 @@ const IndexPage = (props: any) => {
           return (
             <div key={i}>
               <Typography>{`#${i.toString()} ${d.node.frontmatter.name} ${d.node.frontmatter.description}`}</Typography>
-              <Button
-                onClick={() => {
-                  navigate("/client" + d.node.fields.slug)
-                }}
-              >
-                GO
 
-              </Button>
             </div>
           )
         })
       }
-      <button
-        onClick={() => {
-          console.log(33)
-          navigate("/portifolio")
-        }}
-      >
-        Go to Portifolio
-      </button>
-      <button
-        onClick={() => {
-          console.log(33)
-          navigate("/news")
-        }}
-      >
-        Go to News
-      </button>
     </Layout>
   )
 }
@@ -76,7 +82,26 @@ export const pageQuery = graphql`
                 title
             }
         }
-        portifolio : allMdx(
+        clients: allMdx(
+            filter: {fileAbsolutePath: {regex: "/content/client/"}}
+        ) {
+            edges {
+                node {
+                    fileAbsolutePath
+                    excerpt
+                    fields {
+                        slug
+                    }
+                    frontmatter {
+                        name
+                        date(formatString: "MMMM DD, YYYY")
+                        title
+                        description
+                    }
+                }
+            }
+        }
+        projects: allMdx(
             filter: {fileAbsolutePath: {regex: "/content/portifolio/"}}
         ) {
             edges {
@@ -94,7 +119,7 @@ export const pageQuery = graphql`
                 }
             }
         }
-        allMdx : allMdx(filter: {fileAbsolutePath: {regex: "/content/client/"}}) {
+        news: allMdx(filter: {fileAbsolutePath: {regex: "/content/news/"}}) {
             edges {
                 node {
                     fileAbsolutePath

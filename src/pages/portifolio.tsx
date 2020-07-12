@@ -28,7 +28,7 @@ const News = (props: { data?: BlogQueryQuery } & any) => {
                 }}
 
                 onClick={() => {
-                  navigate("/client" + node.fields.slug)
+                  navigate("/portifolio" + node.fields.slug)
                 }}
               >
                 {title}
