@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Container, Hidden } from "@material-ui/core"
-import { navigate } from "gatsby"
+import { navigate, Link } from "gatsby"
 
 
 
@@ -12,7 +12,9 @@ const styles = {
 }
 
 
+
 const TopMenu = () => {
+
 
 function hoverOnItem(e) {
     e.target.style.color = '#000'  
@@ -42,10 +44,12 @@ function hoverOffContact(e) {
                 height: 155,
                 }}>
                 <Container style={{ alignContent: 'flex-start' }}>
-                    <img src="https://user-images.githubusercontent.com/36003926/87722225-1a5ff080-c78e-11ea-8a61-001dafc83634.png"
-                        alt="logo-black"
-                        style={{ margin: 16}}
-                    />
+                    <Link style={{ boxShadow: 'none' }} to="/">
+                        <img src="https://user-images.githubusercontent.com/36003926/87722225-1a5ff080-c78e-11ea-8a61-001dafc83634.png"
+                            alt="logo-black"
+                            style={{ margin: 16}}
+                        />
+                    </Link>
                 </Container>
                 <Hidden smDown>
                     <Container style={{ display: 'flex' }}>
