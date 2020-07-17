@@ -2,6 +2,16 @@ import React, { Fragment } from 'react'
 import { Container, Hidden } from "@material-ui/core"
 import { navigate } from "gatsby"
 
+
+
+const styles = {
+    li: {
+        padding: '0px 10px',
+        border: '1px solid transparent'
+    }
+}
+
+
 const TopMenu = () => {
 
 function hoverOnItem(e) {
@@ -18,6 +28,7 @@ function hoverOnContact(e) {
 function hoverOffContact(e) {
     e.target.style.color = '#AAA'
     e.target.style.border = '1px solid #FFCC00'
+    e.target.style.padding = '1px 10px'
 }
 
 
@@ -27,6 +38,7 @@ function hoverOffContact(e) {
                 display: 'flex', 
                 maxWidth: '1280px',
                 alignItems: 'flex-end',
+                padding: '0px 120px',
                 height: 155,
                 }}>
                 <Container style={{ alignContent: 'flex-start' }}>
@@ -36,26 +48,25 @@ function hoverOffContact(e) {
                     />
                 </Container>
                 <Hidden smDown>
-                    <Container style={{ alignContent: 'flex-end' }}>
-                        <ul style={{ padding: '4px 0px' , color: "#AAA", listStyle: 'none', display: 'flex', justifyContent: 'space-evenly'
-                                 }}>
+                    <Container style={{ display: 'flex' }}>
+                        <ul style={{ color: "#AAA", listStyle: 'none', display: 'flex', justifyContent: 'space-evenly', padding: 8 }}>
                             <li onMouseOver={hoverOnItem} onMouseOut={hoverOffItem} onClick={() => navigate("/")}
-                            style={{ padding: '0px 10px', border: '1px solid transparent' }}
+                                style={styles.li}
                             >
                                 TRABALHOS
                             </li>
                             <li onMouseOver={hoverOnItem} onMouseOut={hoverOffItem} onClick={() => navigate("/about")}
-                            style={{ padding: '0px 10px', border: '1px solid transparent' }}
+                                style={styles.li}
                             >
                                 SOBRE
                             </li>
                             <li onMouseOver={hoverOnItem} onMouseOut={hoverOffItem} onClick={() => navigate("/news")}
-                            style={{ padding: '0px 10px', border: '1px solid transparent' }}
+                                style={styles.li}
                             >
                                 NEWS
                             </li>
                             <li onMouseOver={hoverOnItem} onMouseOut={hoverOffItem} onClick={() => navigate("/clients")}
-                            style={{ padding: '0px 10px', border: '1px solid transparent' }}
+                                style={styles.li}
                             >
                                 CLIENTES
                             </li>
