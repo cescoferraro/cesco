@@ -3,6 +3,7 @@ import * as React from "react"
 import styled from "styled-components"
 import { rhythm, scale } from "../utils/typography"
 import Footer from "./footer"
+import TopMenu from "./topMenu"
 
 declare const __PATH_PREFIX__: string
 
@@ -57,6 +58,7 @@ const Layout = (props: any) => {
   }
   return (
     <Wrapper>
+      <TopMenu/>
       <div
         style={{
           marginLeft: `auto`,
