@@ -71,9 +71,10 @@
     "url": "git+https://github.com/agenciaglobal/web.git"
   },
   "scripts": {
-    "format": "prettier --write src/**/*.{js,jsx} && yarn lint --fix",
-    "prettier": "prettier --check src/**/*.{js,jsx}",
+    "prettier": "prettier src/**/*.{js,jsx}",
     "lint": "eslint . --ext tsx",
+    "checkup": "yarn prettier --check && yarn lint",
+    "format": "yarn prettier --write && yarn lint --fix",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "yarn develop",
