@@ -4,6 +4,8 @@ import styled from "styled-components"
 import { rhythm, scale } from "../utils/typography"
 import Footer from "./footer"
 import TopMenu from "./topMenu"
+import RightDrawer from "./rightDrawer"
+import LeftDrawer from "./leftDrawer"
 
 declare const __PATH_PREFIX__: string
 
@@ -58,6 +60,8 @@ const Layout = (props: any) => {
   }
   return (
     <Wrapper>
+      <RightDrawer/>
+      <LeftDrawer/>
       <TopMenu/>
       <div
         style={{

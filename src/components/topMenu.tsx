@@ -6,7 +6,9 @@ import { navigate, Link } from "gatsby"
 
 const styles = {
     li: {
-        padding: '0px 10px',
+        lineHeight: '1em',
+        fontSize: 13,
+        padding: '6px 10px',
         border: '1px solid transparent'
     }
 }
@@ -25,17 +27,18 @@ function hoverOffItem(e) {
 function hoverOnContact(e) {
     e.target.style.color = '#000'
     e.target.style.border = '2px solid #FFCC00'
-    e.target.style.padding = '0px 9px'
+    e.target.style.padding = '5px 9px'
 }
 function hoverOffContact(e) {
     e.target.style.color = '#AAA'
     e.target.style.border = '1px solid #FFCC00'
-    e.target.style.padding = '1px 10px'
+    e.target.style.padding = '6px 10px'
 }
 
 
     return (
         <Fragment>
+            <Hidden smDown>
             <Container style={{ 
                 display: 'flex', 
                 maxWidth: '1280px',
@@ -51,13 +54,13 @@ function hoverOffContact(e) {
                         />
                     </Link>
                 </Container>
-                <Hidden smDown>
+                
                     <Container style={{ display: 'flex' }}>
                         <ul style={{ color: "#AAA", listStyle: 'none', display: 'flex', justifyContent: 'space-evenly', padding: 8 }}>
                             <li onMouseOver={hoverOnItem} onMouseOut={hoverOffItem} onClick={() => navigate("/")}
                                 style={styles.li}
                             >
-                                TRABALHOS
+                                WORKS
                             </li>
                             <li onMouseOver={hoverOnItem} onMouseOut={hoverOffItem} onClick={() => navigate("/about")}
                                 style={styles.li}
@@ -75,14 +78,15 @@ function hoverOffContact(e) {
                                 CLIENTES
                             </li>
                             <li onMouseOver={hoverOnContact} onMouseOut={hoverOffContact} onClick={() => navigate("/contact")}
-                                style={{ padding: '1px 10px', border: '1px solid #FFCC00' }}
+                                style={{ padding: '6px 10px', border: '1px solid #FFCC00', fontSize: 13, lineHeight: '1em'}}
                             >
                                 CONTATO
                             </li>
                         </ul>
                     </Container>
-                </Hidden>
+                
             </Container>
+            </Hidden>
         </Fragment>
         
     )
