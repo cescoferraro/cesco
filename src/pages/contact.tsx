@@ -7,7 +7,7 @@ import { BlogQueryQuery } from "../global"
 
 const Contact = (props: { data?: BlogQueryQuery } & any) => {
   return (
-    <React.Fragment location={props.location} title={"Agencia Global"}>
+    <React.Fragment>
       <SEO title="All posts" />
       <div style={{ margin: "20px 0 40px" }}>
         <h2>call as 9996GLOBAL!</h2>
