@@ -9,16 +9,14 @@ import ListItemText from "@material-ui/core/ListItemText"
 import DraftsIcon from "@material-ui/icons/Drafts"
 import { graphql, navigate } from "gatsby"
 import * as React from "react"
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const IndexPage = (props: any) => {
-  const siteTitle = "Agencia Global"
   const clients = props.data.clients.edges
   const news = props.data.news.edges
   const projects = props.data.projects.edges
   return (
-    <Layout location={props.location} title={siteTitle}>
+    <React.Fragment>
       <SEO title="Home" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
       <Box style={{ marginTop: 24 }}>
         <Card>
@@ -137,7 +135,7 @@ const IndexPage = (props: any) => {
           </CardActions>
         </Card>
       </Box>
-    </Layout>
+    </React.Fragment>
   )
 }
 

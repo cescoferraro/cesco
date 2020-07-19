@@ -1,11 +1,11 @@
 import { Link } from "gatsby"
 import * as React from "react"
 import styled from "styled-components"
+import Footer from "../components/footer"
+import LeftDrawer from "../components/leftDrawer"
+import RightDrawer from "../components/rightDrawer"
+import TopMenu from "../components/topMenu"
 import { rhythm, scale } from "../utils/typography"
-import Footer from "./footer"
-import TopMenu from "./topMenu"
-import RightDrawer from "./rightDrawer"
-import LeftDrawer from "./leftDrawer"
 
 declare const __PATH_PREFIX__: string
 
@@ -60,9 +60,9 @@ const Layout = (props: any) => {
   }
   return (
     <Wrapper>
-      <RightDrawer/>
-      <LeftDrawer/>
-      <TopMenu/>
+      <RightDrawer />
+      <LeftDrawer />
+      <TopMenu />
       <div
         style={{
           marginLeft: `auto`,
@@ -74,7 +74,7 @@ const Layout = (props: any) => {
         <header>{header}</header>
         <main>{children}</main>
       </div>
-      <Footer/>
+      <Footer />
     </Wrapper>
   )
 }
@@ -82,6 +82,5 @@ const Layout = (props: any) => {
 const Wrapper = styled.div`
   min-height: 100vh;
 `
-
 
 export default Layout

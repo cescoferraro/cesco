@@ -19,6 +19,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
     `gatsby-plugin-feed-mdx`,
+    `gatsby-plugin-layout`,
     {
       resolve: "gatsby-plugin-netlify-cache",
       options: {

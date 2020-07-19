@@ -13,7 +13,7 @@ const News = (props: { data?: BlogQueryQuery } & any) => {
   console.log(data)
   const posts = data.allMdx.edges
   return (
-    <Layout location={props.location} title={siteTitle}>
+    <React.Fragment>
       <SEO title="All posts" />
       <div style={{ margin: "20px 0 40px" }}>
         {posts.map(({ node }, index: number) => {
@@ -43,7 +43,7 @@ const News = (props: { data?: BlogQueryQuery } & any) => {
       <Link to="/">
         <Button marginTop="85px">Go Home</Button>
       </Link>
-    </Layout>
+    </React.Fragment>
   )
 }
 

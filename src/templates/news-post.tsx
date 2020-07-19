@@ -1,17 +1,15 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
 function NewsPostTemplate(props: any) {
   const post = props.data.mdx
-  const siteTitle = props.data.site.siteMetadata.title
   const { previous, next } = props.pageContext
   console.log(props.pageContext)
 
   return (
-    <Layout context={"news"} location={props.location} title={siteTitle}>
+    <React.Fragment>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -57,7 +55,7 @@ function NewsPostTemplate(props: any) {
           )}
         </li>
       </ul>
-    </Layout>
+    </React.Fragment>
   )
 }
 
