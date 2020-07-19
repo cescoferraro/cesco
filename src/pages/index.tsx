@@ -9,7 +9,7 @@ import ListItemText from "@material-ui/core/ListItemText"
 import DraftsIcon from "@material-ui/icons/Drafts"
 import { graphql, navigate } from "gatsby"
 import * as React from "react"
-import SEO from "../components/seo"
+import SEO from "../components/Seo/seo"
 
 const IndexPage = (props: any) => {
   const clients = props.data.clients.edges

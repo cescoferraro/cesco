@@ -1,6 +1,6 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
-import SEO from "../components/seo"
+import SEO from "../components/Seo/seo"
 import { rhythm, scale } from "../utils/typography"
 
 const PortifolioPostTemplate = (props: any) => {

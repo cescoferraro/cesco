@@ -1,8 +1,8 @@
 import { Link } from "gatsby"
 import * as React from "react"
 
-import Button from "../components/button"
-import SEO from "../components/seo"
+import Button from "../components/Button/button"
+import SEO from "../components/Seo/seo"
 import { BlogQueryQuery } from "../global"
 
 const Contact = (props: { data?: BlogQueryQuery } & any) => {

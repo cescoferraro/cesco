@@ -3,10 +3,10 @@ import React, { Fragment } from "react"
 import { Container, Hidden } from "@material-ui/core"
 import { Link } from "gatsby"
 import { LightMode } from "shared/theme"
-import { TabComponent } from "../drawerItem"
+import { TabComponent } from "../TabComponent/drawerItem"
 import logo from "../../../static/logo_white.png"
 import logoblack from "../../../static/logo_black.png"
-import { ThemeSwitch } from "src/components/switch"
+import { ThemeSwitch } from "../ThemeSwitch/switch"
 
 interface Props {
   lightMode: LightMode
