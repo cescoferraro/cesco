@@ -1,7 +1,7 @@
 import { createStyles, makeStyles } from "@material-ui/core/styles"
 import { navigate } from "gatsby"
-import classnames from "classnames"
 import React from "react"
+import * as classNames from "classnames"
 
 const itemStyles = makeStyles(() =>
   createStyles({
@@ -41,7 +41,7 @@ export const TabComponent = ({ label, page, uri }: Props) => {
   return (
     <li
       onClick={() => navigate(page)}
-      className={classnames({
+      className={classNames({
         [classes.li]: !here,
         [classes.selectedStyle]: here,
       })}
