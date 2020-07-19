@@ -1,6 +1,7 @@
 import React from "react"
 import { withStyles, createStyles } from "@material-ui/core/styles"
 import { Paper, Switch, Box } from "@material-ui/core"
+import { LightMode } from "../layouts"
 
 const YellowSwitch = withStyles(() =>
   createStyles({
@@ -52,7 +53,7 @@ const SwitchPaper = withStyles(() =>
       background: "#F2F2F2",
       boxShadow: "none",
       display: "flex",
-      flexWrap: "wrap",
+      flexWrap: "wrap" as any,
       justifyContent: "center",
       alignItems: "center",
     },
@@ -69,18 +70,16 @@ const IconBox = withStyles(() =>
 )(Box)
 
 const svgFill = {
-  fill: '#000'
+  fill: "#000",
 }
 
-export default function ThemeSwitch() {
-  const [state, setState] = React.useState({
-    checked: true,
-  })
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setState({ ...state, [event.target.name]: event.target.checked })
-  }
-
+export function ThemeSwitch({
+  lightMode,
+  toggleLightMode,
+}: {
+  lightMode: LightMode
+  toggleLightMode: () => void
+}) {
   return (
     <SwitchPaper>
       <IconBox>
@@ -92,8 +91,10 @@ export default function ThemeSwitch() {
         </svg>
       </IconBox>
       <YellowSwitch
-        checked={state.checked}
-        onChange={handleChange}
+        checked={lightMode === "light"}
+        onChange={() => {
+          toggleLightMode()
+        }}
         name="checked"
       />
       <IconBox>

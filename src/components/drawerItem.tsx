@@ -3,13 +3,17 @@ import { navigate } from "gatsby"
 import React from "react"
 import * as cs from "classnames"
 
-const padding = "6px 10px"
-
 const itemStyles = makeStyles(() =>
   createStyles({
-    common: { color: "#AAA", fontSize: 13, lineHeight: "1em", padding },
-    selected: { border: "1px solid #FFCC00", "&:hover": { color: "#000" } },
-    regular: { border: "1px solid transparent", "&:hover": { color: "#000" } },
+    common: {
+      color: "#AAA",
+      fontSize: 13,
+      lineHeight: "1em",
+      padding: "6px 10px",
+      "&:hover": { color: "#000" },
+    },
+    selected: { border: "1px solid #FFCC00" },
+    regular: { border: "1px solid transparent" },
   }),
 )
 

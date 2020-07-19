@@ -1,7 +1,10 @@
+import Box from "@material-ui/core/Box"
 import React, { Fragment } from "react"
 import { Container, Hidden } from "@material-ui/core"
 import { navigate, Link } from "gatsby"
+import { LightMode } from "../layouts"
 import { TabComponent } from "./drawerItem"
+import { ThemeSwitch } from "./switch"
 
 const styles = {
   regular: {
@@ -12,7 +15,15 @@ const styles = {
   },
 }
 
-const TopMenu = ({ uri }: { uri: string }) => {
+const TopMenu = ({
+  lightMode,
+  uri,
+  toggleLightMode,
+}: {
+  lightMode: LightMode
+  toggleLightMode: () => void
+  uri: string
+}) => {
   return (
     <Fragment>
       <Hidden smDown>
@@ -51,6 +62,19 @@ const TopMenu = ({ uri }: { uri: string }) => {
               <TabComponent page={"/contact"} uri={uri} label={"CONTACT"} />
             </ul>
           </Container>
+          <Box
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-end",
+              height: "100%",
+            }}
+          >
+            <ThemeSwitch
+              lightMode={lightMode}
+              toggleLightMode={toggleLightMode}
+            />
+          </Box>
         </Container>
       </Hidden>
     </Fragment>

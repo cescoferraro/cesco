@@ -1,7 +1,7 @@
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles, Theme } from "@material-ui/core/styles"
 import { rhythm } from "../utils/typography"
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles((theme: Theme) => ({
   root: {
     marginLeft: `auto`,
     marginRight: `auto`,
@@ -10,5 +10,6 @@ export const useStyles = makeStyles({
   },
   wrapper: {
     minHeight: "100vh",
+    backgroundColor: theme.palette.primary.main,
   },
-})
+}))
