@@ -12,6 +12,13 @@ module.exports = {
     },
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        codegen: false,
+        fileName: `src/global.ts`,
+      },
+    },
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
@@ -118,11 +125,5 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-    // {
-    //     resolve: `gatsby-plugin-graphql-codegen`,
-    //     options: {
-    //         fileName: `src/global.ts`,
-    //     },
-    // },
   ],
 }
