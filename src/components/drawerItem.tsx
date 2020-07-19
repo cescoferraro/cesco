@@ -5,25 +5,16 @@ import * as classNames from "classnames"
 
 const itemStyles = makeStyles(() =>
   createStyles({
-    selectedStyle: {
-      padding: "6px 10px",
+    common: { fontSize: 13, lineHeight: "1em", padding: "6px 10px" },
+    selected: {
       border: "1px solid #FFCC00",
-      fontSize: 13,
-      lineHeight: "1em",
       color: "#AAA",
-      "&:hover": {
-        color: "#000",
-      },
+      "&:hover": { color: "#000" },
     },
-    li: {
-      lineHeight: "1em",
-      fontSize: 13,
-      padding: "6px 10px",
+    regular: {
       border: "1px solid transparent",
       color: "#AAA",
-      "&:hover": {
-        color: "#000",
-      },
+      "&:hover": { color: "#000" },
     },
   }),
 )
@@ -35,17 +26,15 @@ interface Props {
 }
 
 export const TabComponent = ({ label, page, uri }: Props) => {
-  const classes = itemStyles()
+  const { common, regular, selected } = itemStyles()
   const here = uri === page
-  console.log(here)
+  const className = classNames({
+    [common]: true,
+    [regular]: !here,
+    [selected]: here,
+  })
   return (
-    <li
-      onClick={() => navigate(page)}
-      className={classNames({
-        [classes.li]: !here,
-        [classes.selectedStyle]: here,
-      })}
-    >
+    <li onClick={() => navigate(page)} className={className}>
       {label}
     </li>
   )

@@ -4,7 +4,7 @@ import { navigate, Link } from "gatsby"
 import { TabComponent } from "./drawerItem"
 
 const styles = {
-  li: {
+  regular: {
     lineHeight: "1em",
     fontSize: 13,
     padding: "6px 10px",
