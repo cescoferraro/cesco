@@ -14,16 +14,18 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 )
 
-export default function LeftDrawer() {
+export default function LeftDrawer({ open }: { open: boolean }) {
   const classes = useStyles()
 
   return (
-    <Fragment>
-      <Hidden smDown>
-        <Drawer variant="permanent" classes={{ paper: classes.drawerPaper }}>
-          <div>??</div>
-        </Drawer>
-      </Hidden>
-    </Fragment>
+    open && (
+      <Fragment>
+        <Hidden smDown>
+          <Drawer variant="permanent" classes={{ paper: classes.drawerPaper }}>
+            <div>??</div>
+          </Drawer>
+        </Hidden>
+      </Fragment>
+    )
   )
 }

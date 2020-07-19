@@ -1,86 +1,39 @@
-import { Link } from "gatsby"
 import * as React from "react"
-import styled from "styled-components"
+import { Waypoint } from "react-waypoint"
 import Footer from "../components/footer"
 import LeftDrawer from "../components/leftDrawer"
 import RightDrawer from "../components/rightDrawer"
 import TopMenu from "../components/topMenu"
-import { rhythm, scale } from "../utils/typography"
-
-declare const __PATH_PREFIX__: string
+import { useStyles } from "./styles"
 
 const Layout = (props: any) => {
-  const { context = "news" } = props
-  const { location, title, children } = props
-  const rootPath = `${__PATH_PREFIX__}/`
-  const blogPath = `${__PATH_PREFIX__}/${context}/`
-  let header
-
-  if (location.pathname === rootPath || location.pathname === blogPath) {
-    header = (
-      <h1
-        style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={location.pathname === blogPath ? `/${context}/` : `/`}
-        >
-          {title}
-        </Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <h3
-        style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h3>
-    )
-  }
+  console.log(props)
+  const { children } = props
+  const classes = useStyles()
+  const [open, setDrawerOpen] = React.useState(false)
   return (
-    <Wrapper>
-      <RightDrawer />
-      <LeftDrawer />
-      <TopMenu />
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+    <div className={classes.wrapper}>
+      <RightDrawer open={open} uri={props.uri} />
+      <LeftDrawer open={open} uri={props.uri} />
+      <TopMenu uri={props.uri} />
+      <Waypoint
+        onEnter={() => {
+          console.log("onEnter")
+          setDrawerOpen(false)
         }}
-      >
-        <header>{header}</header>
+        onLeave={() => {
+          setDrawerOpen(true)
+          console.log("onLeave")
+        }}
+      />
+
+      <div className={classes.root}>
+        <h2>{open ? "open" : "close"}</h2>
         <main>{children}</main>
       </div>
       <Footer />
-    </Wrapper>
+    </div>
   )
 }
-
-const Wrapper = styled.div`
-  min-height: 100vh;
-`
 
 export default Layout

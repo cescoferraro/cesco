@@ -1,6 +1,7 @@
 import React, { Fragment } from "react"
 import { Container, Hidden } from "@material-ui/core"
 import { navigate, Link } from "gatsby"
+import { TabComponent } from "./drawerItem"
 
 const styles = {
   li: {
@@ -11,24 +12,7 @@ const styles = {
   },
 }
 
-const TopMenu = () => {
-  function hoverOnItem(e) {
-    e.target.style.color = "#000"
-  }
-  function hoverOffItem(e) {
-    e.target.style.color = "#AAA"
-  }
-  function hoverOnContact(e) {
-    e.target.style.color = "#000"
-    e.target.style.border = "2px solid #FFCC00"
-    e.target.style.padding = "5px 9px"
-  }
-  function hoverOffContact(e) {
-    e.target.style.color = "#AAA"
-    e.target.style.border = "1px solid #FFCC00"
-    e.target.style.padding = "6px 10px"
-  }
-
+const TopMenu = ({ uri }: { uri: string }) => {
   return (
     <Fragment>
       <Hidden smDown>
@@ -50,7 +34,6 @@ const TopMenu = () => {
               />
             </Link>
           </Container>
-
           <Container style={{ display: "flex" }}>
             <ul
               style={{
@@ -61,51 +44,11 @@ const TopMenu = () => {
                 padding: 8,
               }}
             >
-              <li
-                onMouseOver={hoverOnItem}
-                onMouseOut={hoverOffItem}
-                onClick={() => navigate("/")}
-                style={styles.li}
-              >
-                WORKS
-              </li>
-              <li
-                onMouseOver={hoverOnItem}
-                onMouseOut={hoverOffItem}
-                onClick={() => navigate("/about")}
-                style={styles.li}
-              >
-                SOBRE
-              </li>
-              <li
-                onMouseOver={hoverOnItem}
-                onMouseOut={hoverOffItem}
-                onClick={() => navigate("/news")}
-                style={styles.li}
-              >
-                NEWS
-              </li>
-              <li
-                onMouseOver={hoverOnItem}
-                onMouseOut={hoverOffItem}
-                onClick={() => navigate("/clients")}
-                style={styles.li}
-              >
-                CLIENTES
-              </li>
-              <li
-                onMouseOver={hoverOnContact}
-                onMouseOut={hoverOffContact}
-                onClick={() => navigate("/contact")}
-                style={{
-                  padding: "6px 10px",
-                  border: "1px solid #FFCC00",
-                  fontSize: 13,
-                  lineHeight: "1em",
-                }}
-              >
-                CONTATO
-              </li>
+              <TabComponent page={"/"} uri={uri} label={"WORKS"} />
+              <TabComponent page={"/about"} uri={uri} label={"ABOUT"} />
+              <TabComponent page={"/news"} uri={uri} label={"NEWS"} />
+              <TabComponent page={"/clients"} uri={uri} label={"CLIENTES"} />
+              <TabComponent page={"/contact"} uri={uri} label={"CONTACT"} />
             </ul>
           </Container>
         </Container>
