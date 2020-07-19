@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Waypoint } from "react-waypoint"
+import Waypoint from "react-waypoint"
 import Footer from "../components/footer"
 import LeftDrawer from "../components/leftDrawer"
 import RightDrawer from "../components/rightDrawer"
