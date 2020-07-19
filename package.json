@@ -72,7 +72,7 @@
     "url": "git+https://github.com/agenciaglobal/web.git"
   },
   "scripts": {
-    "prettier": "prettier src/**/*.{js,jsx}",
+    "prettier": "prettier src/**/*.{js,jsx,ts,tsx}",
     "lint": "eslint . --ext tsx",
     "checkup": "yarn prettier --check && yarn lint",
     "format": "yarn prettier --write && yarn lint --fix",
