@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
     "module": "commonjs",
     "target": "esnext",
     "jsx": "preserve",
@@ -11,5 +12,6 @@
     "noUnusedLocals": false,
     "allowJs": true
   },
+  "include": ["src"],
   "exclude": ["node_modules", "public", ".cache"]
 }

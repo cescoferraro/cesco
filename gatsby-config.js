@@ -1,3 +1,4 @@
+const path = require("path")
 module.exports = {
   pathPrefix: process.env.PATH_PREFIX || "",
   siteMetadata: {
@@ -20,6 +21,13 @@ module.exports = {
     `gatsby-plugin-typescript`,
     `gatsby-plugin-feed-mdx`,
     `gatsby-plugin-layout`,
+    {
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        src: path.join(__dirname, "src"),
+        pages: path.join(__dirname, "src/pages"),
+      },
+    },
     {
       resolve: "gatsby-plugin-netlify-cache",
       options: {

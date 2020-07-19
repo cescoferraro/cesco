@@ -1,14 +1,14 @@
 import React, { Fragment } from "react"
 import { Container } from "@material-ui/core"
 import { ThemeSwitch } from "../components/switch"
-import LangSwitch from "../components/langSwitch"
+import { LanguageSwitcher } from "../components/LanguageSwitcher/LanguageSwitcher"
 
 export default function componentes() {
   return (
     <Fragment>
       <Container style={{ display: "flex", justifyContent: "space-evenly" }}>
+        <LanguageSwitcher />
         <ThemeSwitch />
-        <LangSwitch />
       </Container>
     </Fragment>
   )

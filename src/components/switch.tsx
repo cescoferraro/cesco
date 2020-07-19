@@ -1,7 +1,7 @@
 import React from "react"
 import { withStyles, createStyles } from "@material-ui/core/styles"
 import { Paper, Switch, Box } from "@material-ui/core"
-import { LightMode } from "../layouts"
+import { LightMode } from "../shared/theme"
 
 const YellowSwitch = withStyles(() =>
   createStyles({

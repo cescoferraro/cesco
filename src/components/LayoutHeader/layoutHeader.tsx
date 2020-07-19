@@ -1,29 +1,20 @@
 import Box from "@material-ui/core/Box"
 import React, { Fragment } from "react"
 import { Container, Hidden } from "@material-ui/core"
-import { navigate, Link } from "gatsby"
-import { LightMode } from "../layouts"
-import { TabComponent } from "./drawerItem"
-import { ThemeSwitch } from "./switch"
+import { Link } from "gatsby"
+import { LightMode } from "shared/theme"
+import { TabComponent } from "../drawerItem"
+import logo from "../../../static/logo_white.png"
+import logoblack from "../../../static/logo_black.png"
+import { ThemeSwitch } from "src/components/switch"
 
-const styles = {
-  regular: {
-    lineHeight: "1em",
-    fontSize: 13,
-    padding: "6px 10px",
-    border: "1px solid transparent",
-  },
-}
-
-const TopMenu = ({
-  lightMode,
-  uri,
-  toggleLightMode,
-}: {
+interface Props {
   lightMode: LightMode
   toggleLightMode: () => void
   uri: string
-}) => {
+}
+
+const LayoutHeader = ({ lightMode, uri, toggleLightMode }: Props) => {
   return (
     <Fragment>
       <Hidden smDown>
@@ -39,7 +30,7 @@ const TopMenu = ({
           <Container style={{ alignContent: "flex-start" }}>
             <Link style={{ boxShadow: "none" }} to="/">
               <img
-                src="https://user-images.githubusercontent.com/36003926/87722225-1a5ff080-c78e-11ea-8a61-001dafc83634.png"
+                src={lightMode === "light" ? logoblack : logo}
                 alt="logo-black"
                 style={{ margin: 16 }}
               />
@@ -81,4 +72,4 @@ const TopMenu = ({
   )
 }
 
-export default TopMenu
+export default LayoutHeader
