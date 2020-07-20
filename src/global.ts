@@ -699,6 +699,7 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___date'
   | 'childMdx___frontmatter___description'
   | 'childMdx___frontmatter___name'
+  | 'childMdx___frontmatter___job'
   | 'childMdx___body'
   | 'childMdx___excerpt'
   | 'childMdx___headings'
@@ -1441,6 +1442,7 @@ export type MdxFieldsEnum =
   | 'frontmatter___date'
   | 'frontmatter___description'
   | 'frontmatter___name'
+  | 'frontmatter___job'
   | 'body'
   | 'excerpt'
   | 'headings'
@@ -1570,6 +1572,7 @@ export type MdxFrontmatter = {
   date?: Maybe<Scalars['Date']>;
   description?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
+  job?: Maybe<Scalars['String']>;
 };
 
 
@@ -1586,6 +1589,7 @@ export type MdxFrontmatterFilterInput = {
   date?: Maybe<DateQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
+  job?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MdxGroupConnection = {
@@ -2521,6 +2525,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___plugins___version'
   | 'pluginCreator___pluginOptions___plugins___browserAPIs'
   | 'pluginCreator___pluginOptions___plugins___pluginFilepath'
+  | 'pluginCreator___pluginOptions___codegen'
   | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___src'
   | 'pluginCreator___pluginOptions___pages'
@@ -2737,6 +2742,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___plugins___version'
   | 'pluginOptions___plugins___browserAPIs'
   | 'pluginOptions___plugins___pluginFilepath'
+  | 'pluginOptions___codegen'
   | 'pluginOptions___fileName'
   | 'pluginOptions___src'
   | 'pluginOptions___pages'
@@ -2887,6 +2893,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
+  codegen?: Maybe<Scalars['Boolean']>;
   fileName?: Maybe<Scalars['String']>;
   src?: Maybe<Scalars['String']>;
   pages?: Maybe<Scalars['String']>;
@@ -2912,6 +2919,7 @@ export type SitePluginPluginOptions = {
 
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
+  codegen?: Maybe<BooleanQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   src?: Maybe<StringQueryOperatorInput>;
   pages?: Maybe<StringQueryOperatorInput>;
@@ -3065,7 +3073,7 @@ export type AboutQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSit
     Pick<MdxConnection, 'totalCount'>
     & { edges: Array<{ node: (
         Pick<Mdx, 'excerpt'>
-        & { fields?: Maybe<Pick<MdxFields, 'slug'>>, frontmatter?: Maybe<Pick<MdxFrontmatter, 'date' | 'title' | 'description'>> }
+        & { fields?: Maybe<Pick<MdxFields, 'slug'>>, frontmatter?: Maybe<Pick<MdxFrontmatter, 'date' | 'name' | 'job'>> }
       ) }> }
   ) };
 

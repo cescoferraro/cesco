@@ -35,7 +35,6 @@ export const ActualLayout = ({
         onLeave={() => setDrawerOpen(true)}
       />
       <div className={classes.root}>
-        <h2>{open ? "open" : "close"}</h2>
         <main>{children}</main>
       </div>
       <Footer />

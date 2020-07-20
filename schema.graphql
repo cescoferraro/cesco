@@ -485,6 +485,7 @@ type MdxFrontmatter {
     locale: String
   ): Date
   description: String
+  job: String
   name: String
   path: String
   title: String!
@@ -781,8 +782,10 @@ type SitePluginPluginOptions {
   cacheDigest: String
   cachePublic: Boolean
   cache_busting_mode: String
+  codegen: Boolean
   display: String
   extensions: [String]
+  fileName: String
   gatsbyRemarkPlugins: [SitePluginPluginOptionsGatsbyRemarkPlugins]
   icon: String
   include_favicon: Boolean
@@ -1087,6 +1090,7 @@ enum FileFieldsEnum {
   childMdx___fileAbsolutePath
   childMdx___frontmatter___date
   childMdx___frontmatter___description
+  childMdx___frontmatter___job
   childMdx___frontmatter___name
   childMdx___frontmatter___path
   childMdx___frontmatter___title
@@ -1461,6 +1465,7 @@ enum MdxFieldsEnum {
   fileAbsolutePath
   frontmatter___date
   frontmatter___description
+  frontmatter___job
   frontmatter___name
   frontmatter___path
   frontmatter___title
@@ -1884,8 +1889,10 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___cacheDigest
   pluginCreator___pluginOptions___cachePublic
   pluginCreator___pluginOptions___cache_busting_mode
+  pluginCreator___pluginOptions___codegen
   pluginCreator___pluginOptions___display
   pluginCreator___pluginOptions___extensions
+  pluginCreator___pluginOptions___fileName
   pluginCreator___pluginOptions___gatsbyRemarkPlugins
   pluginCreator___pluginOptions___gatsbyRemarkPlugins___resolve
   pluginCreator___pluginOptions___icon
@@ -2024,8 +2031,10 @@ enum SitePluginFieldsEnum {
   pluginOptions___cacheDigest
   pluginOptions___cachePublic
   pluginOptions___cache_busting_mode
+  pluginOptions___codegen
   pluginOptions___display
   pluginOptions___extensions
+  pluginOptions___fileName
   pluginOptions___gatsbyRemarkPlugins
   pluginOptions___gatsbyRemarkPlugins___options___backgroundColor
   pluginOptions___gatsbyRemarkPlugins___options___disableBgImage
@@ -2344,6 +2353,7 @@ input MdxFilterInput {
 input MdxFrontmatterFilterInput {
   date: DateQueryOperatorInput
   description: StringQueryOperatorInput
+  job: StringQueryOperatorInput
   name: StringQueryOperatorInput
   path: StringQueryOperatorInput
   title: StringQueryOperatorInput
@@ -2533,8 +2543,10 @@ input SitePluginPluginOptionsFilterInput {
   cacheDigest: StringQueryOperatorInput
   cachePublic: BooleanQueryOperatorInput
   cache_busting_mode: StringQueryOperatorInput
+  codegen: BooleanQueryOperatorInput
   display: StringQueryOperatorInput
   extensions: StringQueryOperatorInput
+  fileName: StringQueryOperatorInput
   gatsbyRemarkPlugins: SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput
   icon: StringQueryOperatorInput
   include_favicon: BooleanQueryOperatorInput

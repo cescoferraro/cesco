@@ -12,30 +12,15 @@ const About = (props: { data?: AboutQueryQuery } & any) => {
   return (
     <React.Fragment>
       <SEO title="All posts" />
+      <h2>Team</h2>
       <div style={{ margin: "20px 0 40px" }}>
-        <h2>we are hell a coll!</h2>
-
         {posts.map(({ node }, index: number) => {
-          const title = node.frontmatter.title || node.fields.slug
+          const title = node.frontmatter.name || node.fields.slug
+          const job = node.frontmatter.job || node.fields.slug
           return (
             <div key={index}>
-              <a
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-                onClick={() => {
-                  navigate("/news" + node.fields.slug)
-                }}
-              >
-                hello
-                {title}
-              </a>
-              <small>{node.frontmatter.date}</small>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
+              <h4>{title}</h4>
+              <p>{job}</p>
             </div>
           )
         })}
@@ -55,7 +40,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx {
+    allMdx(filter: { fileAbsolutePath: { regex: "/content/team/" } }) {
       totalCount
       edges {
         node {
@@ -65,8 +50,8 @@ export const pageQuery = graphql`
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
-            title
-            description
+            name
+            job
           }
         }
       }
