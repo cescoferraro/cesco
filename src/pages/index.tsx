@@ -10,8 +10,10 @@ import DraftsIcon from "@material-ui/icons/Drafts"
 import { graphql, navigate } from "gatsby"
 import * as React from "react"
 import SEO from "../components/Seo/seo"
+import { withTrans } from "../i18n/withTrans"
 
 const IndexPage = (props: any) => {
+  console.log(props)
   const clients = props.data.clients.edges
   const news = props.data.news.edges
   const projects = props.data.projects.edges
@@ -22,7 +24,7 @@ const IndexPage = (props: any) => {
         <Card>
           <CardContent>
             <Typography variant="h5" component="h2">
-              News
+              {props.t("news")}
             </Typography>
             <List>
               {news.map((d, i: number) => (
@@ -59,7 +61,7 @@ const IndexPage = (props: any) => {
         <Card>
           <CardContent>
             <Typography variant="h5" component="h2">
-              Projetos
+              {props.t("projects")}
             </Typography>
             <List>
               {projects.map((d, i: number) => (
@@ -139,7 +141,7 @@ const IndexPage = (props: any) => {
   )
 }
 
-export default IndexPage
+export default withTrans(IndexPage)
 
 export const pageQuery = graphql`
   query HomeQuery {

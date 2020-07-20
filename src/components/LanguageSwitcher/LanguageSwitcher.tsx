@@ -3,15 +3,14 @@ import { Box } from "@material-ui/core"
 import { makeStyles, createStyles } from "@material-ui/core/styles"
 import * as cs from "classnames"
 
-const useStyles = makeStyles(() =>
+export const useStylesClasses = makeStyles(() =>
   createStyles({
     box: {
       width: 60,
       border: "none",
       display: "flex",
-      paddingBottom: 110,
     },
-    buttonInactive: {
+    inactive: {
       fontSize: 12,
       height: 30,
       width: 30,
@@ -24,7 +23,7 @@ const useStyles = makeStyles(() =>
         boxShadow: "0px 0px 0px 2px #FFCC00 inset",
       },
     },
-    buttonActive: {
+    active: {
       fontSize: 12,
       height: 30,
       width: 30,
@@ -41,7 +40,7 @@ const useStyles = makeStyles(() =>
 )
 
 export function LanguageSwitcher() {
-  const classes = useStyles()
+  const classes = useStylesClasses()
 
   const [state, setState] = React.useState({
     PT: true,
@@ -56,14 +55,14 @@ export function LanguageSwitcher() {
     setState({ PT: false, EN: true })
   }
 
-  const { buttonInactive, buttonActive } = useStyles()
+  const { inactive, active } = useStylesClasses()
   const PTButtonClass = cs({
-    [buttonInactive]: state.EN,
-    [buttonActive]: state.PT,
+    [inactive]: state.EN,
+    [active]: state.PT,
   })
   const ENButtonClass = cs({
-    [buttonInactive]: !state.EN,
-    [buttonActive]: !state.PT,
+    [inactive]: !state.EN,
+    [active]: !state.PT,
   })
 
   return (

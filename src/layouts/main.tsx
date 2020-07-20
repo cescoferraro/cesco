@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Waypoint } from "react-waypoint"
+import { LanguageMenu } from "../components/LanguageSwitcher"
 import Footer from "../components/LayoutFooter/footer"
 import LeftDrawer from "../components/LayoutLeftDrawer/leftDrawer"
 import RightDrawer from "../components/LayoutRightDrawer/rightDrawer"

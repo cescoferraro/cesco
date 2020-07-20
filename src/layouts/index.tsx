@@ -1,9 +1,11 @@
 import { ThemeProvider } from "@material-ui/core"
 import * as React from "react"
+import { withTrans } from "../i18n/withTrans"
 import { darkTheme, LightMode, lightTheme } from "../shared/theme"
 import { ActualLayout } from "./main"
 
-const Layout = (props: any) => {
+const Layout = (props: any & TranslationProps) => {
+  console.log(props)
   const [mode, setMode] = React.useState<LightMode>("light")
   return (
     <ThemeProvider theme={mode === "light" ? lightTheme : darkTheme}>
@@ -17,4 +19,4 @@ const Layout = (props: any) => {
   )
 }
 
-export default Layout
+export default withTrans(Layout)
