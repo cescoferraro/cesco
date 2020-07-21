@@ -14,7 +14,10 @@ const itemStyles = makeStyles(() =>
       padding: "4px 0px 3px",
       "&:hover": { color: "#000" },
     },
-    selected: { borderBottom: "2px solid #FFCC00" },
+    selected: {
+      color: "#000",
+      borderBottom: "2px solid #FFCC00",
+    },
     contactCommon: {
       color: "rgba(0, 0, 0, 0.6)",
       fontSize: 13,
@@ -25,6 +28,7 @@ const itemStyles = makeStyles(() =>
       "&:hover": { color: "#000" },
     },
     contactSelected: {
+      color: "#000",
       border: "2px solid #FFCC00",
       padding: "4px 6px 3px",
     },
