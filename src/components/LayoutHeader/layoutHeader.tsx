@@ -1,11 +1,11 @@
 import Box from "@material-ui/core/Box"
 import React, { Fragment } from "react"
 import { Container, Hidden } from "@material-ui/core"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import { LightMode } from "shared/theme"
 import { TabComponent } from "../TabComponent/drawerItem"
-import logo from "../../../static/logo_white.png"
-import logoblack from "../../../static/logo_black.png"
+import logo from "../../../static/logo-white.png"
+import logoblack from "../../../static/logo-black.png"
 import { ThemeSwitch } from "../ThemeSwitch/switch"
 
 interface Props {
@@ -32,7 +32,7 @@ const LayoutHeader = ({ lightMode, uri, toggleLightMode }: Props) => {
               <img
                 src={lightMode === "light" ? logoblack : logo}
                 alt="logo-black"
-                style={{ margin: 16 }}
+                style={{ margin: 16, height: 100 }}
               />
             </Link>
           </Container>

@@ -11,6 +11,24 @@ const Contact = (props: { data?: BlogQueryQuery } & any) => {
       <SEO title="All posts" />
       <div style={{ margin: "20px 0 40px" }}>
         <h2>call as 9996GLOBAL!</h2>
+        <h2>call as 9996GLOBAL!</h2>
+        <h2>call as 9996GLOBAL!</h2>
+        <h2>call as 9996GLOBAL!</h2>
+        <h2>call as 9996GLOBAL!</h2>
+        <h2>call as 9996GLOBAL!</h2>
+        <h2>call as 9996GLOBAL!</h2>
+        <h2>call as 9996GLOBAL!</h2>
+        <h2>call as 9996GLOBAL!</h2>
+        <h2>call as 9996GLOBAL!</h2>
+        <h2>call as 9996GLOBAL!</h2>
+        <h2>call as 9996GLOBAL!</h2>
+        <h2>call as 9996GLOBAL!</h2>
+        <h2>call as 9996GLOBAL!</h2>
+        <h2>call as 9996GLOBAL!</h2>
+        <h2>call as 9996GLOBAL!</h2>
+        <h2>call as 9996GLOBAL!</h2>
+        <h2>call as 9996GLOBAL!</h2>
+        <h2>call as 9996GLOBAL!</h2>
       </div>
       <Link to="/">
         <Button marginTop="85px">Go Home</Button>
