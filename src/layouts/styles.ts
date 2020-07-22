@@ -12,4 +12,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     minHeight: "100vh",
     backgroundColor: theme.palette.primary.main,
   },
+  mobileHeaderContainer: {
+    backgroundColor: theme.palette.primary.main,
+  },
 }))

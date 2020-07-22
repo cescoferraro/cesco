@@ -9,11 +9,11 @@ declare module "@material-ui/core/styles/createMuiTheme" {
 export type LightMode = "light" | "dark"
 const darkPalette = {
   primary: { main: "#000" },
-  secondary: { main: "#000" },
+  secondary: { main: "rgba(255, 255, 255, 0.6)" },
 }
 const lightPalette = {
   primary: { main: "#FFF" },
-  secondary: { main: "#FFF" },
+  secondary: { main: "rgba(0, 0, 0, 0.6)" },
 }
 const lightOptions: ThemeOptions = {
   palette: lightPalette,

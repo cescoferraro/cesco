@@ -14,7 +14,11 @@ interface Props {
   uri: string
 }
 
-const LayoutHeader = ({ lightMode, uri, toggleLightMode }: Props) => {
+const LayoutHeader = ({
+  lightMode,
+  uri,
+  toggleLightMode,
+}: Props): React.ReactElement => {
   return (
     <Fragment>
       <Hidden smDown>

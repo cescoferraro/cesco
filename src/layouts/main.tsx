@@ -4,6 +4,7 @@ import Footer from "../components/LayoutFooter/footer"
 import LeftDrawer from "../components/LayoutLeftDrawer/leftDrawer"
 import RightDrawer from "../components/LayoutRightDrawer/rightDrawer"
 import LayoutHeader from "../components/LayoutHeader/layoutHeader"
+import LayoutHeaderMobile from "../components/LayoutHeader/layoutHeaderMobile"
 import { useStyles } from "./styles"
 
 interface Props {
@@ -25,6 +26,11 @@ export const ActualLayout = ({
     <div className={classes.wrapper}>
       <RightDrawer open={open} uri={uri} />
       <LeftDrawer open={open} uri={uri} />
+      <LayoutHeaderMobile
+        lightMode={lightMode}
+        uri={uri}
+        toggleLightMode={toggleLightMode}
+      />
       <LayoutHeader
         lightMode={lightMode}
         uri={uri}
