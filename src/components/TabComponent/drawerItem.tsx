@@ -4,7 +4,6 @@ import React from "react"
 import * as cs from "classnames"
 
 const itemStyles = makeStyles((theme: Theme) => {
-  console.log(theme.palette.primary)
   const color = theme.palette.primary.contrastText
   return createStyles({
     common: {

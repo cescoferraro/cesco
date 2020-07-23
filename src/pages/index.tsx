@@ -1,59 +1,80 @@
-import { Box, Button, Typography } from "@material-ui/core"
-import Card from "@material-ui/core/Card"
-import CardActions from "@material-ui/core/CardActions"
-import CardContent from "@material-ui/core/CardContent"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemText from "@material-ui/core/ListItemText"
-import { graphql, navigate } from "gatsby"
+import { Box, Typography } from "@material-ui/core"
+import AppBar from "@material-ui/core/AppBar"
+import Tab from "@material-ui/core/Tab"
+import Tabs from "@material-ui/core/Tabs"
+import { graphql } from "gatsby"
+import _ from "lodash"
 import * as React from "react"
 import SEO from "../components/Seo/seo"
 import { HomeQueryQuery } from "../global"
 import { withTrans } from "../i18n/withTrans"
 
+interface Props {
+  children: React.ReactElement
+  value: index
+  index: number
+  title: string
+}
+
+const TabPanel = ({ title, children, index, value }: Props) => {
+  console.log(index, value)
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+    >
+      {value === index && (
+        <Box p={3}>
+          <Typography>{title}</Typography>
+          {children}
+        </Box>
+      )}
+    </div>
+  )
+}
 const IndexPage = (props: { data?: HomeQueryQuery }): React.ReactElement => {
-  console.log(props)
   const projects = props.data.projects.edges
+  const actualProject = projects.map((d) => d.node.frontmatter)
+  const allProjects = _.groupBy(actualProject, "categorie")
+  const categories = Object.keys(allProjects)
+  console.log(categories)
+  const [value, setValue] = React.useState(0)
+  const handleChange = (event, newValue) => setValue(newValue)
+  const a11yProps = (index) => ({
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
+  })
   return (
     <React.Fragment>
       <SEO title="Home" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
-      <Box style={{ marginTop: 24 }}>
-        <Card>
-          <CardContent>
-            <Typography variant="h5" component="h2">
-              {props.t("projects")}
-            </Typography>
-            <List>
-              {projects.map((d, i: number) => (
-                <ListItem key={i}>
-                  <ListItemText>
-                    {`#${i.toString()} ${d.node.frontmatter.title} ${
-                      d.node.frontmatter.description
-                    }`}
-                  </ListItemText>
-                  <Button
-                    variant={"contained"}
-                    onClick={() => {
-                      void navigate("/portifolio" + d.node.fields.slug)
-                    }}
-                  >
-                    Go
-                  </Button>
-                </ListItem>
-              ))}
-            </List>
-          </CardContent>
-          <CardActions>
-            <Button
-              onClick={() => navigate("/portifolio")}
-              size="small"
-              color="primary"
-            >
-              Listar
-            </Button>
-          </CardActions>
-        </Card>
-      </Box>
+      <AppBar position="static">
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="simple tabs example"
+        >
+          {categories.map((d, index) => {
+            return <Tab key={index} label={d} {...a11yProps(index)} />
+          })}
+        </Tabs>
+      </AppBar>
+      {categories.map((categorie, index) => {
+        const categorieProjects = allProjects[categorie]
+        return (
+          <TabPanel title={categorie} key={index} value={value} index={index}>
+            {categorieProjects.map((project, index) => {
+              return (
+                <div key={index}>
+                  <h2> {project.title} </h2>
+                  <h2> {project.image} </h2>
+                </div>
+              )
+            })}
+          </TabPanel>
+        )
+      })}
     </React.Fragment>
   )
 }
@@ -81,6 +102,8 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            image
+            categorie
           }
         }
       }
