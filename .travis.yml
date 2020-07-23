@@ -5,6 +5,8 @@ node_js:
   - "12"
 before_install:
   - yarn checkup
+  - yarn test --coverage
+  - bash <(curl -s https://codecov.io/bash)
 install:
   - yarn
 deploy:

@@ -1,8 +1,8 @@
 import { graphql } from "gatsby"
 import _ from "lodash"
 import * as React from "react"
+import { HomePage } from "../components/HomePage/homePage"
 import { HomeQueryQuery } from "../global"
-import { HomeComponent } from "./home/home"
 
 interface Props {
   data?: HomeQueryQuery
@@ -18,7 +18,7 @@ const usePortifolio = (data: HomeQueryQuery) => {
 
 const IndexPage = ({ data }: Props): React.ReactElement => {
   const { projects, categories } = usePortifolio(data)
-  return <HomeComponent projects={projects} categories={categories} />
+  return <HomePage projects={projects} categories={categories} />
 }
 
 export default IndexPage
