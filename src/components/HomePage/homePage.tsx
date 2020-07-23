@@ -42,7 +42,7 @@ interface Props {
   categories: string[]
 }
 
-export const HomeComponent = withTrans(({ categories, projects }: Props) => {
+export const HomePage = withTrans(({ categories, projects }: Props) => {
   const classes = useStyles()
   const [value, setValue] = React.useState<number>(0)
   return (
