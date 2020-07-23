@@ -33,6 +33,15 @@ collections:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: description, label: Description }
+      - name: categorie
+        label: Categorie
+        widget: select
+        options:
+          - { label: "featured", value: "featured" }
+          - { label: "digital", value: "digital" }
+          - { label: "social", value: "social" }
+          - { label: "crm", value: "crm" }
+          - { label: "advertising", value: "advertising" }
   - name: team
     label: Team
     folder: content/team

@@ -4,9 +4,7 @@ import CardActions from "@material-ui/core/CardActions"
 import CardContent from "@material-ui/core/CardContent"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
-import ListItemIcon from "@material-ui/core/ListItemIcon"
 import ListItemText from "@material-ui/core/ListItemText"
-import DraftsIcon from "@material-ui/icons/Drafts"
 import { graphql, navigate } from "gatsby"
 import * as React from "react"
 import SEO from "../components/Seo/seo"
@@ -14,49 +12,10 @@ import { withTrans } from "../i18n/withTrans"
 
 const IndexPage = (props: any) => {
   console.log(props)
-  const clients = props.data.clients.edges
-  const news = props.data.news.edges
   const projects = props.data.projects.edges
   return (
     <React.Fragment>
       <SEO title="Home" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
-      <Box style={{ marginTop: 24 }}>
-        <Card>
-          <CardContent>
-            <Typography variant="h5" component="h2">
-              {props.t("news")}
-            </Typography>
-            <List>
-              {news.map((d, i: number) => (
-                <ListItem key={i}>
-                  <ListItemText>
-                    {`#${i.toString()} ${d.node.frontmatter.title} ${
-                      d.node.frontmatter.description
-                    }`}
-                  </ListItemText>
-                  <Button
-                    variant={"contained"}
-                    onClick={() => {
-                      navigate("/news" + d.node.fields.slug)
-                    }}
-                  >
-                    Go
-                  </Button>
-                </ListItem>
-              ))}
-            </List>
-          </CardContent>
-          <CardActions>
-            <Button
-              onClick={() => navigate("/news")}
-              size="small"
-              color="primary"
-            >
-              Listar
-            </Button>
-          </CardActions>
-        </Card>
-      </Box>
       <Box style={{ marginTop: 24 }}>
         <Card>
           <CardContent>
@@ -94,49 +53,6 @@ const IndexPage = (props: any) => {
           </CardActions>
         </Card>
       </Box>
-      <Box style={{ marginTop: 24 }}>
-        <Card>
-          <CardContent>
-            <Typography variant="h5" component="h2">
-              Clientes
-            </Typography>
-            <List>
-              {clients.map((d, i: number) => (
-                <ListItem key={i}>
-                  <ListItemText>
-                    {`#${i.toString()} ${d.node.frontmatter.name} ${
-                      d.node.frontmatter.description
-                    }`}
-                  </ListItemText>
-                  <ListItemIcon>
-                    <DraftsIcon />
-                  </ListItemIcon>
-                </ListItem>
-              ))}
-            </List>
-          </CardContent>
-        </Card>
-      </Box>
-      <Box style={{ marginTop: 24 }}>
-        <Card>
-          <CardActions>
-            <Button
-              onClick={() => navigate("/about")}
-              size="small"
-              color="primary"
-            >
-              Saiba + Sobre a Global
-            </Button>
-            <Button
-              onClick={() => navigate("/contact")}
-              size="small"
-              color="primary"
-            >
-              Contato
-            </Button>
-          </CardActions>
-        </Card>
-      </Box>
     </React.Fragment>
   )
 }
@@ -150,25 +66,6 @@ export const pageQuery = graphql`
         title
       }
     }
-    clients: allMdx(
-      filter: { fileAbsolutePath: { regex: "/content/client/" } }
-    ) {
-      edges {
-        node {
-          fileAbsolutePath
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            name
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-          }
-        }
-      }
-    }
     projects: allMdx(
       filter: { fileAbsolutePath: { regex: "/content/portifolio/" } }
     ) {
@@ -180,23 +77,6 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-          }
-        }
-      }
-    }
-    news: allMdx(filter: { fileAbsolutePath: { regex: "/content/news/" } }) {
-      edges {
-        node {
-          fileAbsolutePath
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            name
             date(formatString: "MMMM DD, YYYY")
             title
             description

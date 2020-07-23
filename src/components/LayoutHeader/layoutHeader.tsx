@@ -1,11 +1,11 @@
-import Box from "@material-ui/core/Box"
-import React, { Fragment } from "react"
 import { Container, Hidden } from "@material-ui/core"
+import Box from "@material-ui/core/Box"
 import { Link } from "gatsby"
+import React, { Fragment } from "react"
 import { LightMode } from "shared/theme"
-import { TabComponent } from "../TabComponent/drawerItem"
-import logo from "../../../static/logo-white.png"
 import logoblack from "../../../static/logo-black.png"
+import logo from "../../../static/logo-white.png"
+import { TabComponent } from "../TabComponent/drawerItem"
 import { ThemeSwitch } from "../ThemeSwitch/switch"
 
 interface Props {
@@ -53,6 +53,7 @@ const LayoutHeader = ({
               <TabComponent page={"/"} uri={uri} label={"WORKS"} />
               <TabComponent page={"/about"} uri={uri} label={"ABOUT"} />
               <TabComponent page={"/news"} uri={uri} label={"NEWS"} />
+              <TabComponent page={"/team"} uri={uri} label={"TEAM"} />
               <TabComponent page={"/clients"} uri={uri} label={"CLIENTES"} />
               <TabComponent page={"/contact"} uri={uri} label={"CONTACT"} />
             </ul>

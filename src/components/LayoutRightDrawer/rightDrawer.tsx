@@ -41,6 +41,7 @@ const RightDrawer = ({ uri, open }: { uri: string; open: boolean }) => {
                 <TabComponent page={"/"} uri={uri} label={"WORKS"} />
                 <TabComponent page={"/about"} uri={uri} label={"ABOUT"} />
                 <TabComponent page={"/news"} uri={uri} label={"NEWS"} />
+                <TabComponent page={"/team"} uri={uri} label={"TEAM"} />
                 <TabComponent page={"/clients"} uri={uri} label={"CLIENTES"} />
                 <TabComponent page={"/contact"} uri={uri} label={"CONTACT"} />
               </ul>
