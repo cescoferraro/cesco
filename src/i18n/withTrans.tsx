@@ -6,9 +6,10 @@ export const withTrans = (
   component: ReactElement,
 ): ((props) => React.ReactElement) => {
   const Component: React.ReactElement = withTranslation()(component)
-  return (props): React.ReactElement => (
+  const reactElement = (props): React.ReactElement => (
     <I18nextProvider i18n={i18next}>
       <Component {...props} language={i18next.language} />
     </I18nextProvider>
   )
+  return reactElement
 }
