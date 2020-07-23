@@ -33,6 +33,13 @@ collections:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: description, label: Description }
+      - label: "Image"
+        name: "image"
+        widget: "image"
+        default: "/uploads/chocolate-dogecoin.jpg"
+        media_library:
+          config:
+            multiple: true
       - name: categorie
         label: Categorie
         widget: select

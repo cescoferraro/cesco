@@ -4,7 +4,7 @@ import * as React from "react"
 import Button from "../components/Button/button"
 import SEO from "../components/Seo/seo"
 
-const About = () => {
+const About = (): React.ReactElement => {
   return (
     <React.Fragment>
       <SEO title="All posts" />

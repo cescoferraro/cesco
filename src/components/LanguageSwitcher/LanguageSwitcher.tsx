@@ -39,7 +39,7 @@ export const useStylesClasses = makeStyles(() =>
   }),
 )
 
-export function LanguageSwitcher() {
+export function LanguageSwitcher(): React.ReactElement {
   const classes = useStylesClasses()
 
   const [state, setState] = React.useState({

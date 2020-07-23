@@ -1,8 +1,7 @@
 import React from "react"
 import SEO from "../components/Seo/seo"
-import { BlogQueryQuery } from "../global"
 
-const Clients = (props: { data?: BlogQueryQuery } & any) => {
+const Clients = (): React.ReactElement => {
   return (
     <React.Fragment>
       <SEO title="All posts" />

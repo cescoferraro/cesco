@@ -3,9 +3,8 @@ import * as React from "react"
 
 import Button from "../components/Button/button"
 import SEO from "../components/Seo/seo"
-import { BlogQueryQuery } from "../global"
 
-const Contact = (props: { data?: BlogQueryQuery } & any) => {
+const Contact = (): React.ReactElement => {
   return (
     <React.Fragment>
       <SEO title="All posts" />

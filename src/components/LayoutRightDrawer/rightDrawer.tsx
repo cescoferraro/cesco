@@ -28,7 +28,13 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 )
 
-const RightDrawer = ({ uri, open }: { uri: string; open: boolean }) => {
+const RightDrawer = ({
+  uri,
+  open,
+}: {
+  uri: string
+  open: boolean
+}): React.ReactElement => {
   const classes = useStyles()
   const drawerClasses = { paper: classes.drawerPaper }
   return (

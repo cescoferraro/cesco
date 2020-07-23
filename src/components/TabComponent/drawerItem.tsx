@@ -37,7 +37,11 @@ const itemStyles = makeStyles((theme: Theme) => {
   })
 })
 
-export const TabComponent = ({ label, page, uri }: Props) => {
+export const TabComponent = ({
+  label,
+  page,
+  uri,
+}: Props): React.ReactElement => {
   const { common, contactCommon, selected, contactSelected } = itemStyles()
   const contact = label === "CONTACT"
   const here = uri === page && !contact

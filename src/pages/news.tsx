@@ -6,9 +6,8 @@ import SEO from "../components/Seo/seo"
 import { BlogQueryQuery } from "../global"
 import { rhythm } from "../utils/typography"
 
-const News = (props: { data?: BlogQueryQuery } & any) => {
+const News = (props: { data?: BlogQueryQuery }): React.ReactElement => {
   const { data } = props
-  console.log(data)
   const posts = data.allMdx.edges
   return (
     <React.Fragment>

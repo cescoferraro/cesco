@@ -1,9 +1,13 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
 import SEO from "../components/Seo/seo"
+import { PortifolioPostBySlugQuery, SitePageContext } from "../global"
 import { rhythm, scale } from "../utils/typography"
 
-const PortifolioPostTemplate = (props: any) => {
+const PortifolioPostTemplate = (props: {
+  data?: PortifolioPostBySlugQuery
+  pageContext: SitePageContext
+}): React.ReactElement => {
   const post = props.data.mdx
   const { previous, next } = props.pageContext
   console.log(props.pageContext)

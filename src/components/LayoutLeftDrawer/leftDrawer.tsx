@@ -1,6 +1,6 @@
+import { Drawer, Hidden } from "@material-ui/core"
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
 import React, { Fragment } from "react"
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles"
-import { Hidden, Drawer } from "@material-ui/core"
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 )
 
-export default function LeftDrawer({ open }: { open: boolean }) {
+const LeftDrawer = ({ open }: { open: boolean }): React.ReactElement => {
   const classes = useStyles()
 
   return (
@@ -30,3 +30,4 @@ export default function LeftDrawer({ open }: { open: boolean }) {
     )
   )
 }
+export default LeftDrawer

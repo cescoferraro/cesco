@@ -1,11 +1,10 @@
 import * as React from "react"
 import { Waypoint } from "react-waypoint"
-import { LanguageMenu } from "../components/LanguageSwitcher"
 import Footer from "../components/LayoutFooter/footer"
-import LeftDrawer from "../components/LayoutLeftDrawer/leftDrawer"
-import RightDrawer from "../components/LayoutRightDrawer/rightDrawer"
 import LayoutHeader from "../components/LayoutHeader/layoutHeader"
 import LayoutHeaderMobile from "../components/LayoutHeader/layoutHeaderMobile"
+import LeftDrawer from "../components/LayoutLeftDrawer/leftDrawer"
+import RightDrawer from "../components/LayoutRightDrawer/rightDrawer"
 import { useStyles } from "./styles"
 
 interface Props {
@@ -20,7 +19,7 @@ export const ActualLayout = ({
   lightMode,
   toggleLightMode,
   uri,
-}: Props) => {
+}: Props): React.ReactElement => {
   const [open, setDrawerOpen] = React.useState(false)
   const classes = useStyles()
   return (

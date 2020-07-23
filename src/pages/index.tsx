@@ -8,9 +8,10 @@ import ListItemText from "@material-ui/core/ListItemText"
 import { graphql, navigate } from "gatsby"
 import * as React from "react"
 import SEO from "../components/Seo/seo"
+import { HomeQueryQuery } from "../global"
 import { withTrans } from "../i18n/withTrans"
 
-const IndexPage = (props: any) => {
+const IndexPage = (props: { data?: HomeQueryQuery }): React.ReactElement => {
   console.log(props)
   const projects = props.data.projects.edges
   return (
@@ -33,7 +34,7 @@ const IndexPage = (props: any) => {
                   <Button
                     variant={"contained"}
                     onClick={() => {
-                      navigate("/portifolio" + d.node.fields.slug)
+                      void navigate("/portifolio" + d.node.fields.slug)
                     }}
                   >
                     Go

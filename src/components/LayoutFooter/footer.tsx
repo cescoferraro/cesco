@@ -19,7 +19,7 @@ const styles = {
   },
 }
 
-const Footer = () => {
+const Footer = (): React.ReactElement => {
   function mouseOverFill(e) {
     e.target.style.fill = "#FFCC00"
   }

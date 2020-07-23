@@ -1,85 +1,112 @@
+import { Paper, StyleRules, Switch } from "@material-ui/core"
+import { createStyles, makeStyles } from "@material-ui/core/styles"
 import React from "react"
-import { withStyles, createStyles } from "@material-ui/core/styles"
-import { Paper, Switch, Box } from "@material-ui/core"
-import { LightMode } from "../shared/theme"
+import { LightMode } from "../../shared/theme"
 
-const YellowSwitch = withStyles(() =>
-  createStyles({
-    root: {
-      width: 30,
-      height: 17,
-      padding: 0,
-      display: "flex",
-      transform: "rotate(-90deg)",
-    },
-    switchBase: {
-      padding: 0,
+const stylesYellowSwitch = {
+  root: {
+    width: 30,
+    height: 17,
+    padding: 0,
+    display: "flex",
+    transform: "rotate(-90deg)",
+  },
+  switchBase: {
+    padding: 0,
+    color: "white",
+    "&$checked": {
+      transform: "translateX(13px)",
       color: "white",
-      "&$checked": {
-        transform: "translateX(13px)",
-        color: "white",
-        "& + $track": {
-          opacity: 1,
-          backgroundColor: "#FFCC00",
-        },
+      "& + $track": {
+        opacity: 1,
+        backgroundColor: "#FFCC00",
       },
     },
-    thumb: {
-      width: 17,
-      height: 17,
-      border: "1px solid #E8E8E8",
-      boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.15)",
-    },
-    track: {
-      margin: 1,
-      width: 30,
-      height: 15,
-      backgroundColor: "#FFCC00",
-      border: `none`,
-      boxShadow: "inset 0px 0px 3px rgba(0, 0, 0, 0.25)",
-      borderRadius: 16 / 2,
-      opacity: 1,
-    },
-    checked: {},
-  }),
-)(Switch)
-
-const SwitchPaper = withStyles(() =>
-  createStyles({
-    root: {
-      width: 50,
-      height: 90,
-      borderRadius: 0,
-      background: "#F2F2F2",
-      boxShadow: "none",
-      display: "flex",
-      flexWrap: "wrap" as any,
-      justifyContent: "center",
-      alignItems: "center",
-    },
-  }),
-)(Paper)
-
-const IconBox = withStyles(() =>
-  createStyles({
-    root: {
-      margin: "0px 8px",
-      height: 16,
-    },
-  }),
-)(Box)
-
-const svgFill = {
-  fill: "#000",
+  },
+  thumb: {
+    width: 17,
+    height: 17,
+    border: "1px solid #E8E8E8",
+    boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.15)",
+  },
+  track: {
+    margin: 1,
+    width: 30,
+    height: 15,
+    backgroundColor: "#FFCC00",
+    border: `none`,
+    boxShadow: "inset 0px 0px 3px rgba(0, 0, 0, 0.25)",
+    borderRadius: 16 / 2,
+    opacity: 1,
+  },
+  checked: {},
 }
 
-export function ThemeSwitch({
+const YellowSwitch = ({
+  checked,
+  onChange,
+  name,
+}: {
+  checked: boolean
+  onChange: (event: Event) => void
+  name: string
+}): React.ReactElement => {
+  const classes = makeStyles(() => createStyles(stylesYellowSwitch))()
+  return (
+    <Switch
+      classes={classes}
+      name={name}
+      onChange={onChange}
+      checked={checked}
+    />
+  )
+}
+const styles: StyleRules<"root"> = {
+  root: {
+    width: 50,
+    height: 90,
+    borderRadius: 0,
+    background: "#F2F2F2",
+    boxShadow: "none",
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+}
+
+const SwitchPaper = ({
+  children,
+}: {
+  children: React.ReactElement
+}): React.ReactElement => {
+  const classes = makeStyles(() => createStyles(styles))()
+  return <Paper className={classes.root}>{children}</Paper>
+}
+const IconBox = ({
+  children,
+}: {
+  children: React.ReactElement
+}): React.ReactElement => {
+  const classes = makeStyles(() =>
+    createStyles({
+      root: {
+        margin: "0px 8px",
+        height: 16,
+      },
+    }),
+  )()
+  return <Paper className={classes.root}>{children}</Paper>
+}
+
+export const ThemeSwitch = ({
   lightMode,
   toggleLightMode,
 }: {
   lightMode: LightMode
   toggleLightMode: () => void
-}) {
+}): React.ReactElement => {
+  const svgFill = { fill: "#000" }
   return (
     <SwitchPaper>
       <IconBox>

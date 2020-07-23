@@ -4,7 +4,7 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 import { useStylesClasses } from "./LanguageSwitcher"
 
-export const LanguageMenu = (props) => {
+export const LanguageMenu = (): React.ReactElement => {
   const x = useTranslation()
   const { inactive, active, box } = useStylesClasses()
   const [language, setLanguage] = React.useState("pt-BR")
