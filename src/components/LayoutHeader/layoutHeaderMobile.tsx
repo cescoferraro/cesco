@@ -7,6 +7,7 @@ import logo from "../../../static/logo-white.png"
 import logoblack from "../../../static/logo-black.png"
 import { ThemeSwitch } from "../ThemeSwitch/switch"
 import * as cs from "classnames"
+import { ThemeSwitchMobile } from "../ThemeSwitch/switchMobile"
 
 interface Props {
   lightMode: LightMode
@@ -62,6 +63,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   mobileMenuCommon: {
     display: "flex",
     flexDirection: "column",
+    justifyContent: "space-between",
     textAlign: "center",
     background: theme.palette.secondary.main,
     height: "100vh",
@@ -175,14 +177,16 @@ const LayoutHeaderMobile = ({
             <Box
               style={{
                 display: "flex",
-                justifyContent: "center",
+                justifyContent: "space-between",
                 alignItems: "flex-end",
+                padding: "40px 16px",
               }}
             >
               <ThemeSwitch
                 lightMode={lightMode}
                 toggleLightMode={toggleLightMode}
               />
+              <ThemeSwitchMobile />
             </Box>
           </Container>
         </Container>
