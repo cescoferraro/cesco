@@ -1,16 +1,18 @@
-import React from "react"
-import { I18nextProvider, withTranslation } from "react-i18next"
+/* eslint-disable */
+import React, { Component } from "react"
 import i18next from "./config"
+import { I18nextProvider, withTranslation } from "react-i18next"
 
-export const withTrans = (
-  component: React.ReactComponentElement<void>,
-): ((props) => React.ReactElement) => {
-  const Component: React.ReactElement = withTranslation()(component)
-  return function hello(props): React.ReactElement {
-    return (
-      <I18nextProvider i18n={i18next}>
-        <Component {...props} language={i18next.language} />
-      </I18nextProvider>
-    )
+export function withTrans(WrappedComponent) {
+  WrappedComponent = withTranslation()(WrappedComponent)
+
+  return class extends Component<any, any> {
+    render() {
+      return (
+        <I18nextProvider i18n={i18next}>
+          <WrappedComponent {...this.props} language={i18next.language} />
+        </I18nextProvider>
+      )
+    }
   }
 }
