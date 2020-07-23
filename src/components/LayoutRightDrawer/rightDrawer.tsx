@@ -1,11 +1,12 @@
 import { Container, Drawer, Hidden } from "@material-ui/core"
-import { createStyles, makeStyles } from "@material-ui/core/styles"
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
 import React, { Fragment } from "react"
 import { TabComponent } from "../TabComponent/drawerItem"
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     drawerPaper: {
+      background: theme.palette.primary.main,
       width: 120,
       border: "none",
       display: "flex",

@@ -11,9 +11,6 @@ import * as cs from "classnames"
 interface Props {
   lightMode: LightMode
   toggleLightMode: () => void
-  uri: string
-  label: string
-  page: string
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -90,10 +87,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 }))
 
 const LayoutHeaderMobile = ({
-  label,
-  page,
   lightMode,
-  uri,
   toggleLightMode,
 }: Props): React.ReactElement => {
   const classes = useStyles()

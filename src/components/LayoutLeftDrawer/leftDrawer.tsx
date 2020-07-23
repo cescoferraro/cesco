@@ -5,6 +5,7 @@ import { Hidden, Drawer } from "@material-ui/core"
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     drawerPaper: {
+      background: theme.palette.primary.main,
       width: 120,
       border: "none",
       display: "flex",
