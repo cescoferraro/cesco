@@ -1,39 +1,41 @@
-import { createStyles, makeStyles } from "@material-ui/core/styles"
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
 import { navigate } from "gatsby"
 import React from "react"
 import * as cs from "classnames"
 
-const itemStyles = makeStyles(() =>
-  createStyles({
+const itemStyles = makeStyles((theme: Theme) => {
+  console.log(theme.palette.primary)
+  const color = theme.palette.primary.contrastText
+  return createStyles({
     common: {
-      color: "rgba(0, 0, 0, 0.6)",
+      color,
       fontSize: 13,
       lineHeight: "1em",
       border: "2px solid transparent",
       margin: "0px 8px",
       padding: "4px 0px 3px",
-      "&:hover": { color: "#000" },
+      "&:hover": { color },
     },
     selected: {
-      color: "#000",
+      color: color,
       borderBottom: "2px solid #FFCC00",
     },
     contactCommon: {
-      color: "rgba(0, 0, 0, 0.6)",
+      color,
       fontSize: 13,
       lineHeight: "1em",
       border: "1px solid #FFCC00",
       margin: "0px 2px",
       padding: "5px 7px 2px",
-      "&:hover": { color: "#000" },
+      "&:hover": { color },
     },
     contactSelected: {
-      color: "#000",
+      color,
       border: "2px solid #FFCC00",
       padding: "4px 6px 3px",
     },
-  }),
-)
+  })
+})
 
 export const TabComponent = ({ label, page, uri }: Props) => {
   const { common, contactCommon, selected, contactSelected } = itemStyles()
