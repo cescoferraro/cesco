@@ -11,7 +11,7 @@ const About = (): React.ReactElement => {
       <h2>Team</h2>
 
       <Link to="/">
-        <Button marginTop="85px">Go Home</Button>
+        <Button>Go Home</Button>
       </Link>
     </React.Fragment>
   )

@@ -38,7 +38,7 @@ const News = (props: { data?: BlogQueryQuery }): React.ReactElement => {
         })}
       </div>
       <Link to="/">
-        <Button marginTop="85px">Go Home</Button>
+        <Button>Go Home</Button>
       </Link>
     </React.Fragment>
   )

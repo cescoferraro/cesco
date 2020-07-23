@@ -30,7 +30,7 @@ const Contact = (): React.ReactElement => {
         <h2>call as 9996GLOBAL!</h2>
       </div>
       <Link to="/">
-        <Button marginTop="85px">Go Home</Button>
+        <Button>Go Home</Button>
       </Link>
     </React.Fragment>
   )
