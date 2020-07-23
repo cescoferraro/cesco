@@ -9,6 +9,6 @@ export const receiptComponent = ({ label }) => <button>{label}</button>
 receiptComponent.controls = {
   label: {
     type: "text",
-    value: "sdf",
+    value: "Cesco",
   },
 }
