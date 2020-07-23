@@ -3,11 +3,15 @@ import * as React from "react"
 import SEO from "../components/Seo/seo"
 import { Site } from "../global"
 
-const NotFoundPage = ({ site }: { site: Site }): React.ReactElement => {
+const NotFoundPage = ({
+  data,
+}: {
+  data?: { site: Site }
+}): React.ReactElement => {
   return (
     <React.Fragment>
       <SEO title="404: Not Found" />
-      <h1>{site.siteMetadata.title}</h1>
+      <h1>{data.site.siteMetadata.title}</h1>
       <h1>Not Found</h1>
       <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
     </React.Fragment>
