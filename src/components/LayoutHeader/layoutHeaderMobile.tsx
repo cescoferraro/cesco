@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     transition: "transform 500ms",
   },
   divIconOpen: {
-    background: theme.palette.secondary.main,
+    background: theme.palette.primary.main,
     width: 24,
     height: 3,
     "&:first-child": {
@@ -79,6 +79,14 @@ const useStyles = makeStyles((theme: Theme) => ({
   mobileMenuOpen: {
     transform: "translateX(0)",
   },
+  menuItem: {
+    listStyle: "none",
+    textDecoration: "none",
+    textAlign: "left",
+    fontSize: 24,
+    marginBottom: 6,
+    color: theme.palette.primary.main,
+  },
 }))
 
 const LayoutHeaderMobile = ({
@@ -90,7 +98,7 @@ const LayoutHeaderMobile = ({
 }: Props): React.ReactElement => {
   const classes = useStyles()
   const [nav, showNav] = useState(false)
-  function handleClick() {
+  function handleClick(page: string) {
     showNav(!nav)
     navigate(page)
   }
@@ -135,8 +143,40 @@ const LayoutHeaderMobile = ({
             <div className={divIcon}></div>
           </button>
           <Container className={className}>
-            <ul>
-              <li onClick={() => handleClick()}>{label}</li>
+            <ul style={{ margin: 16 }}>
+              <li className={classes.menuItem} onClick={() => handleClick("/")}>
+                Trabalhos
+              </li>
+              <li
+                className={classes.menuItem}
+                onClick={() => handleClick("/about")}
+              >
+                Sobre
+              </li>
+              <li
+                className={classes.menuItem}
+                onClick={() => handleClick("/news")}
+              >
+                News
+              </li>
+              <li
+                className={classes.menuItem}
+                onClick={() => handleClick("/clients")}
+              >
+                Clientes
+              </li>
+              <li
+                className={classes.menuItem}
+                onClick={() => handleClick("/team")}
+              >
+                Equipe
+              </li>
+              <li
+                className={classes.menuItem}
+                onClick={() => handleClick("/contact")}
+              >
+                Contato
+              </li>
             </ul>
             <Box
               style={{

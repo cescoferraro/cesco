@@ -1,7 +1,7 @@
 import Box from "@material-ui/core/Box"
 import React, { Fragment } from "react"
 import { Container, Hidden } from "@material-ui/core"
-import { Link, navigate } from "gatsby"
+import { Link } from "gatsby"
 import { LightMode } from "shared/theme"
 import { TabComponent } from "../TabComponent/drawerItem"
 import logo from "../../../static/logo-white.png"
