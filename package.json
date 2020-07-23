@@ -59,6 +59,8 @@
     "typography-theme-wordpress-2016": "^0.16.19"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-syntax-class-properties": "^7.10.4",
     "@babel/preset-env": "7.10.4",
     "@babel/preset-react": "7.10.4",
     "@babel/preset-typescript": "7.10.4",
