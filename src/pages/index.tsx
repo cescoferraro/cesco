@@ -9,16 +9,21 @@ interface Props {
 }
 
 const usePortifolio = (data: HomeQueryQuery) => {
-  const all = data.projects.edges.map((d) => d.node.frontmatter)
+  const all = data.projects.edges.map((d) => ({
+    ...d.node.frontmatter,
+    slug: d.node.fields.slug,
+  }))
   return {
+    all,
     projects: _.groupBy(all, "categorie"),
     categories: Object.keys(_.groupBy(all, "categorie")),
   }
 }
 
 const IndexPage = ({ data }: Props): React.ReactElement => {
-  const { projects, categories } = usePortifolio(data)
-  return <HomePage projects={projects} categories={categories} />
+  console.log("natal")
+  const { projects, categories, all } = usePortifolio(data)
+  return <HomePage all={all} projects={projects} categories={categories} />
 }
 
 export default IndexPage

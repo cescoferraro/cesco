@@ -2,7 +2,6 @@ import { graphql, Link, navigate } from "gatsby"
 import * as React from "react"
 
 import Button from "../components/Button/button"
-import SEO from "../components/Seo/seo"
 import { BlogQueryQuery } from "../global"
 import { rhythm } from "../utils/typography"
 
@@ -11,7 +10,6 @@ const News = (props: { data?: BlogQueryQuery }): React.ReactElement => {
   const posts = data.allMdx.edges
   return (
     <React.Fragment>
-      <SEO title="All posts" />
       <div style={{ margin: "20px 0 40px" }}>
         {posts.map(({ node }, index: number) => {
           const title = node.frontmatter.title || node.fields.slug

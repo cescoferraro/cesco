@@ -1,21 +1,16 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
-import SEO from "../components/Seo/seo"
-import { NewsPostBySlugQuery, SitePageContext } from "../global"
+import { SitePageContext } from "../global"
 import { rhythm, scale } from "../utils/typography"
 
 const NewsPostTemplate = (props: {
-  data?: NewsPostBySlugQuery
+  data?: any
   pageContext: SitePageContext
 }): React.ReactElement => {
   const post = props.data.mdx
   const { previous, next } = props.pageContext
   return (
     <React.Fragment>
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
       <h3>newss</h3>
       <h1>{post.frontmatter.title}</h1>
       <p

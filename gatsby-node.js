@@ -14,7 +14,11 @@ let s = `
               slug
             }
             frontmatter {
+              date(formatString: "MMMM DD YYYY")
               title
+              description
+              image
+              categorie
             }
           }
         }
@@ -31,6 +35,8 @@ let s = `
             }
             frontmatter {
               title
+              date(formatString: "MMMM DD YYYY")
+              description
             }
           }
         }
@@ -38,13 +44,53 @@ let s = `
     }
   `
 
-function extracted(key, posts, createPage, blogPost) {
-  posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    const next = index === 0 ? null : posts[index - 1].node
+// function extracted(key, posts, createPage, blogPost) {
+//   posts.forEach((post, index) => {
+//     const previous = index === posts.length - 1 ? null : posts[index + 1].node
+//     const next = index === 0 ? null : posts[index - 1].node
+//     createPage({
+//       path: `${key}${post.node.fields.slug}`,
+//       component: blogPost,
+//       context: {
+//         slug: post.node.fields.slug,
+//         previous,
+//         next,
+//       },
+//     })
+//   })
+// }
+
+function createNewsPages(result, createPage) {
+  const newsTemplate = path.resolve(`./src/templates/news-post.tsx`)
+  const key = "news"
+  const news = result.data.news.edges
+  news.forEach((post, index) => {
+    const previous = index === news.length - 1 ? null : news[index + 1].node
+    const next = index === 0 ? null : news[index - 1].node
     createPage({
       path: `${key}${post.node.fields.slug}`,
-      component: blogPost,
+      component: newsTemplate,
+      context: {
+        slug: post.node.fields.slug,
+        previous,
+        next,
+      },
+    })
+  })
+}
+function createPortifolio(result, createPage) {
+  const newsTemplate = path.resolve(`./src/templates/portifolio-post.tsx`)
+  // const key = "portifolio"
+  const projects = result.data.portifolio.edges
+  projects.forEach((post, index) => {
+    const previous =
+      index === projects.length - 1 ? null : projects[index + 1].node
+    const next = index === 0 ? null : projects[index - 1].node
+    let categorie = post.node.frontmatter.categorie
+    console.log(post, categorie)
+    createPage({
+      path: `${categorie}${post.node.fields.slug}`,
+      component: newsTemplate,
       context: {
         slug: post.node.fields.slug,
         previous,
@@ -56,16 +102,12 @@ function extracted(key, posts, createPage, blogPost) {
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-  const newsTemplate = path.resolve(`./src/templates/news-post.tsx`)
-  const portifolioTemplate = path.resolve(`./src/templates/portifolio-post.tsx`)
   return graphql(s).then((result) => {
     if (result.errors) {
       throw result.errors
     }
-    const posts = result.data.portifolio.edges
-    extracted("portifolio", posts, createPage, portifolioTemplate)
-    const news = result.data.news.edges
-    extracted("news", news, createPage, newsTemplate)
+    createPortifolio(result, createPage)
+    createNewsPages(result, createPage)
     return null
   })
 }

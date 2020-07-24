@@ -2,7 +2,6 @@ import { graphql, Link } from "gatsby"
 import * as React from "react"
 
 import Button from "../components/Button/button"
-import SEO from "../components/Seo/seo"
 import { TeamQueryQuery } from "../global"
 
 const About = (props: { data?: TeamQueryQuery }): React.ReactElement => {
@@ -10,7 +9,6 @@ const About = (props: { data?: TeamQueryQuery }): React.ReactElement => {
   const posts = props.data.allMdx.edges
   return (
     <React.Fragment>
-      <SEO title="All posts" />
       <h2>Team</h2>
       <div style={{ margin: "20px 0 40px" }}>
         {[...posts, ...posts, ...posts].map(({ node }, index: number) => {

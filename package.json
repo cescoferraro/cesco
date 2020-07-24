@@ -98,6 +98,7 @@
     "format": "yarn prettier --write && yarn lint --fix",
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "clean": "gatsby clean",
     "start": "yarn develop",
     "serve": "gatsby serve",
     "test": "jest",

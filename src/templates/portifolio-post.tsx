@@ -1,11 +1,10 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
-import SEO from "../components/Seo/seo"
-import { PortifolioPostBySlugQuery, SitePageContext } from "../global"
+import { SitePageContext } from "../global"
 import { rhythm, scale } from "../utils/typography"
 
 const PortifolioPostTemplate = (props: {
-  data?: PortifolioPostBySlugQuery
+  data?: any
   pageContext: SitePageContext
 }): React.ReactElement => {
   const post = props.data.mdx
@@ -14,10 +13,6 @@ const PortifolioPostTemplate = (props: {
 
   return (
     <React.Fragment>
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
       <h1>{post.frontmatter.title}</h1>
       <p
         style={{
