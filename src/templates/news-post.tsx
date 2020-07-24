@@ -4,6 +4,7 @@ import { SitePageContext } from "../global"
 import { rhythm, scale } from "../utils/typography"
 
 const NewsPostTemplate = (props: {
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
   data?: any
   pageContext: SitePageContext
 }): React.ReactElement => {
