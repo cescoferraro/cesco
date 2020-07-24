@@ -1,5 +1,5 @@
-import { Paper, StyleRules, Switch } from "@material-ui/core"
-import { createStyles, makeStyles } from "@material-ui/core/styles"
+import { Paper, Switch } from "@material-ui/core"
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
 import React from "react"
 import { LightMode } from "../../shared/theme"
 
@@ -61,27 +61,28 @@ const YellowSwitch = ({
     />
   )
 }
-const styles: StyleRules<"root"> = {
-  root: {
+
+const useStyles = makeStyles((theme: Theme) => ({
+  switchPaper: {
     width: 50,
     height: 90,
     borderRadius: 0,
-    background: "#F2F2F2",
+    background: theme.palette.grey.A200,
     boxShadow: "none",
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
   },
-}
+}))
 
 const SwitchPaper = ({
   children,
 }: {
   children: React.ReactElement
 }): React.ReactElement => {
-  const classes = makeStyles(() => createStyles(styles))()
-  return <Paper className={classes.root}>{children}</Paper>
+  const classes = useStyles()
+  return <Paper className={classes.switchPaper}>{children}</Paper>
 }
 const IconBox = ({
   children,
@@ -93,6 +94,8 @@ const IconBox = ({
       root: {
         margin: "0px 8px",
         height: 16,
+        background: "transparent",
+        boxShadow: "none",
       },
     }),
   )()
@@ -106,7 +109,7 @@ export const ThemeSwitch = ({
   lightMode: LightMode
   toggleLightMode: () => void
 }): React.ReactElement => {
-  const svgFill = { fill: "#000" }
+  const svgFill = { fill: lightMode === "light" ? "#000" : "#FFF" }
   return (
     <SwitchPaper>
       <IconBox>

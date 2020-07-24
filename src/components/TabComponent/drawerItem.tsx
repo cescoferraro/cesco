@@ -7,7 +7,7 @@ const itemStyles = makeStyles((theme: Theme) => {
   const color = theme.palette.primary.contrastText
   return createStyles({
     common: {
-      color: theme.palette.secondary.main,
+      color: theme.palette.grey.A100,
       fontSize: 13,
       lineHeight: "1em",
       border: "2px solid transparent",
@@ -20,7 +20,7 @@ const itemStyles = makeStyles((theme: Theme) => {
       borderBottom: "2px solid #FFCC00",
     },
     contactCommon: {
-      color: theme.palette.secondary.main,
+      color: theme.palette.grey.A100,
       fontSize: 13,
       lineHeight: "1em",
       border: "1px solid #FFCC00",

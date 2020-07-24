@@ -7,7 +7,6 @@ import logo from "../../../static/logo-white.png"
 import logoblack from "../../../static/logo-black.png"
 import { ThemeSwitch } from "../ThemeSwitch/switch"
 import * as cs from "classnames"
-import { ThemeSwitchMobile } from "../ThemeSwitch/switchMobile"
 
 interface Props {
   lightMode: LightMode
@@ -41,13 +40,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     zIndex: 3,
   },
   divIconCommon: {
-    background: theme.palette.secondary.main,
+    background: theme.palette.grey.A100,
     width: 24,
     height: 3,
     transition: "transform 500ms",
   },
   divIconOpen: {
-    background: theme.palette.primary.main,
+    background: theme.palette.secondary.main,
     width: 24,
     height: 3,
     "&:first-child": {
@@ -65,7 +64,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: "column",
     justifyContent: "space-between",
     textAlign: "center",
-    background: theme.palette.secondary.main,
+    background: theme.palette.primary.main,
     height: "100vh",
     width: "100%",
     position: "absolute",
@@ -84,7 +83,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     textAlign: "left",
     fontSize: 24,
     marginBottom: 6,
-    color: theme.palette.primary.main,
+    color: theme.palette.secondary.main,
   },
 }))
 
@@ -119,15 +118,7 @@ const LayoutHeaderMobile = ({
           <Container style={{ padding: 0, zIndex: 3 }}>
             <Link style={{ boxShadow: "none" }} to="/">
               <img
-                src={
-                  nav === true
-                    ? lightMode === "light"
-                      ? logo
-                      : logoblack
-                    : lightMode === "light"
-                    ? logoblack
-                    : logo
-                }
+                src={lightMode === "light" ? logoblack : logo}
                 alt="logo-black"
                 style={{ margin: 16, height: 100 }}
               />
@@ -177,7 +168,7 @@ const LayoutHeaderMobile = ({
             <Box
               style={{
                 display: "flex",
-                justifyContent: "space-between",
+                justifyContent: "flex-end",
                 alignItems: "flex-end",
                 padding: "40px 16px",
               }}
@@ -186,7 +177,6 @@ const LayoutHeaderMobile = ({
                 lightMode={lightMode}
                 toggleLightMode={toggleLightMode}
               />
-              <ThemeSwitchMobile />
             </Box>
           </Container>
         </Container>
