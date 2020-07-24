@@ -18,6 +18,7 @@ type Portifolio = { slug: string } & Maybe<
 >
 
 interface Props {
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
   all: any[]
   projects: { [key]: Portifolio[] }
   categories: string[]
