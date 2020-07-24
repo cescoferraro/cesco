@@ -13,6 +13,7 @@ const darkPalette = {
   grey: {
     A100: "rgba(255, 255, 255, 0.6)",
     A200: "#232323",
+    A400: "#AAA"
   },
 }
 const lightPalette = {
@@ -21,6 +22,7 @@ const lightPalette = {
   grey: {
     A100: "rgba(0, 0, 0, 0.6)",
     A200: "#E5E5E5",
+    A400: "#333"
   },
 }
 const lightOptions: ThemeOptions = {
