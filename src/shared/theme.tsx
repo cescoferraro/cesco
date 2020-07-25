@@ -25,10 +25,42 @@ const lightPalette = {
     A400: "#333",
   },
 }
+const typography = {
+  fontFamily: "GSTwo",
+}
 const lightOptions: ThemeOptions = {
   palette: lightPalette,
   themeName: "light" as LightMode,
+  typography,
+  overrides: {
+    MuiTab: {
+      wrapper: {
+        color: "rgba(0, 0, 0, 0.6)",
+      },
+    },
+    MuiTypography: {
+      root: {
+        color: "rgba(0, 0, 0, 0.6)",
+      },
+    },
+  },
 }
 export const lightTheme = createMuiTheme(lightOptions)
-const darkOptions = { palette: darkPalette, themeName: "dark" as LightMode }
+const darkOptions = {
+  palette: darkPalette,
+  themeName: "dark" as LightMode,
+  typography,
+  overrides: {
+    MuiTab: {
+      wrapper: {
+        color: "white",
+      },
+    },
+    MuiTypography: {
+      root: {
+        color: "white",
+      },
+    },
+  },
+}
 export const darkTheme = createMuiTheme(darkOptions)

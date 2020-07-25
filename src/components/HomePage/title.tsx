@@ -6,7 +6,28 @@ const subtitle =
   "somos uma Agência criativa para marcas em constante transformação."
 export const HomeTitleComponent = (): React.ReactElement => (
   <React.Fragment>
-    <Typography>{title}</Typography>
-    <Typography>{subtitle}</Typography>
+    <Typography
+      style={{
+        marginTop: 24,
+        fontFamily: "GSThree",
+        fontSize: "40px",
+        lineHeight: "65px",
+        textTransform: "capitalize",
+      }}
+      noWrap={true}
+    >
+      {title.toUpperCase()}
+    </Typography>
+    <Typography
+      noWrap={true}
+      style={{
+        fontWeight: "500",
+        fontSize: "27px",
+        lineHeight: "30px",
+        textTransform: "capitalize",
+      }}
+    >
+      {subtitle.toUpperCase()}
+    </Typography>
   </React.Fragment>
 )

@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "GSOne";
+  src: url("../static/GlobalSans/GlobalSansOne/GlobalSansOne.otf")
+    format("opentype");
+}
+@font-face {
+  font-family: "GSTwo";
+  src: url("../static/GlobalSans/GlobalSansTwo/GlobalSansTwo.otf")
+    format("opentype");
+}
+@font-face {
+  font-family: "GSThree";
+  src: url("../static/GlobalSans/GlobalSansThree/GlobalSansThree.otf")
+    format("opentype");
+}
+@font-face {
+  font-family: "GSStreet";
+  src: url("../static/GlobalSans/GlobalSansStreet/GlobalSansStreet.otf")
+    format("opentype");
+}
+
+body::-webkit-scrollbar {
+  width: 0 !important;
+}

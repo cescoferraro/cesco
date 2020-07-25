@@ -1,3 +1,4 @@
+import { Typography } from "@material-ui/core"
 import { graphql, Link } from "gatsby"
 import * as React from "react"
 
@@ -9,15 +10,15 @@ const About = (props: { data?: TeamQueryQuery }): React.ReactElement => {
   const posts = props.data.allMdx.edges
   return (
     <React.Fragment>
-      <h2>Team</h2>
+      <Typography>Team</Typography>
       <div style={{ margin: "20px 0 40px" }}>
         {[...posts, ...posts, ...posts].map(({ node }, index: number) => {
           const title = node.frontmatter.name || node.fields.slug
           const job = node.frontmatter.job || node.fields.slug
           return (
             <div key={index}>
-              <h4>{title}</h4>
-              <p>{job}</p>
+              <Typography>{title}</Typography>
+              <Typography>{job}</Typography>
             </div>
           )
         })}
