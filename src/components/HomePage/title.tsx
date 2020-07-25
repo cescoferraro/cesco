@@ -8,7 +8,8 @@ export const HomeTitleComponent = (): React.ReactElement => (
   <React.Fragment>
     <Typography
       style={{
-        marginTop: 32,
+        marginTop: 24,
+        fontFamily: "GSThree",
         fontSize: "40px",
         lineHeight: "65px",
         textTransform: "capitalize",
@@ -22,7 +23,7 @@ export const HomeTitleComponent = (): React.ReactElement => (
       style={{
         fontWeight: "500",
         fontSize: "27px",
-        lineHeight: "65px",
+        lineHeight: "30px",
         textTransform: "capitalize",
       }}
     >

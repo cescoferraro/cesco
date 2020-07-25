@@ -2,19 +2,13 @@
   display: -webkit-box; /* Not needed if autoprefixing */
   display: -ms-flexbox; /* Not needed if autoprefixing */
   display: flex;
-  margin-left: -30px; /* gutter size offset */
   width: auto;
 }
 .global-home-grid-column {
-  padding-left: 30px; /* gutter size */
   background-clip: padding-box;
 }
 
-/* Style your items */
 .global-home-grid-column > div {
-  /* change div to reference your elements you put in <Masonry> */
   background: grey;
-  margin-bottom: 30px;
-  width: auto;
-  max-height: 300px;
+  height: 390px;
 }

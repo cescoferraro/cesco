@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Waypoint } from "react-waypoint"
-import Footer from "../components/LayoutFooter/footer"
 import LayoutHeader from "../components/LayoutHeader/layoutHeader"
 import LayoutHeaderMobile from "../components/LayoutHeader/layoutHeaderMobile"
 import LeftDrawer from "../components/LayoutLeftDrawer/leftDrawer"
@@ -42,7 +41,7 @@ export const ActualLayout = ({
         onLeave={() => setDrawerOpen(true)}
       />
       <main className={classes.root}>{children}</main>
-      <Footer />
+      {/*<Footer />*/}
     </div>
   )
 }

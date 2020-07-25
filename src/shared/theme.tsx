@@ -25,9 +25,13 @@ const lightPalette = {
     A400: "#333",
   },
 }
+const typography = {
+  fontFamily: "GSTwo",
+}
 const lightOptions: ThemeOptions = {
   palette: lightPalette,
   themeName: "light" as LightMode,
+  typography,
   overrides: {
     MuiTab: {
       wrapper: {
@@ -45,6 +49,7 @@ export const lightTheme = createMuiTheme(lightOptions)
 const darkOptions = {
   palette: darkPalette,
   themeName: "dark" as LightMode,
+  typography,
   overrides: {
     MuiTab: {
       wrapper: {

@@ -1,3 +1,4 @@
+import { Typography } from "@material-ui/core"
 import { Link } from "gatsby"
 import * as React from "react"
 
@@ -7,25 +8,25 @@ const Contact = (): React.ReactElement => {
   return (
     <React.Fragment>
       <div style={{ margin: "20px 0 40px" }}>
-        <h2>call as 9996GLOBAL!</h2>
-        <h2>call as 9996GLOBAL!</h2>
-        <h2>call as 9996GLOBAL!</h2>
-        <h2>call as 9996GLOBAL!</h2>
-        <h2>call as 9996GLOBAL!</h2>
-        <h2>call as 9996GLOBAL!</h2>
-        <h2>call as 9996GLOBAL!</h2>
-        <h2>call as 9996GLOBAL!</h2>
-        <h2>call as 9996GLOBAL!</h2>
-        <h2>call as 9996GLOBAL!</h2>
-        <h2>call as 9996GLOBAL!</h2>
-        <h2>call as 9996GLOBAL!</h2>
-        <h2>call as 9996GLOBAL!</h2>
-        <h2>call as 9996GLOBAL!</h2>
-        <h2>call as 9996GLOBAL!</h2>
-        <h2>call as 9996GLOBAL!</h2>
-        <h2>call as 9996GLOBAL!</h2>
-        <h2>call as 9996GLOBAL!</h2>
-        <h2>call as 9996GLOBAL!</h2>
+        <Typography>call as 9996GLOBAL!</Typography>
+        <Typography>call as 9996GLOBAL!</Typography>
+        <Typography>call as 9996GLOBAL!</Typography>
+        <Typography>call as 9996GLOBAL!</Typography>
+        <Typography>call as 9996GLOBAL!</Typography>
+        <Typography>call as 9996GLOBAL!</Typography>
+        <Typography>call as 9996GLOBAL!</Typography>
+        <Typography>call as 9996GLOBAL!</Typography>
+        <Typography>call as 9996GLOBAL!</Typography>
+        <Typography>call as 9996GLOBAL!</Typography>
+        <Typography>call as 9996GLOBAL!</Typography>
+        <Typography>call as 9996GLOBAL!</Typography>
+        <Typography>call as 9996GLOBAL!</Typography>
+        <Typography>call as 9996GLOBAL!</Typography>
+        <Typography>call as 9996GLOBAL!</Typography>
+        <Typography>call as 9996GLOBAL!</Typography>
+        <Typography>call as 9996GLOBAL!</Typography>
+        <Typography>call as 9996GLOBAL!</Typography>
+        <Typography>call as 9996GLOBAL!</Typography>
       </div>
       <Link to="/">
         <Button>Go Home</Button>
