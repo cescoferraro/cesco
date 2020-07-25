@@ -1,7 +1,6 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
 import { SitePageContext } from "../global"
-import { rhythm, scale } from "../utils/typography"
 
 const PortifolioPostTemplate = (props: {
   /* eslint-disable  @typescript-eslint/no-explicit-any */
@@ -17,19 +16,12 @@ const PortifolioPostTemplate = (props: {
       <h1>{post.frontmatter.title}</h1>
       <p
         style={{
-          ...scale(-1 / 5),
           display: `block`,
-          marginBottom: rhythm(1),
-          marginTop: rhythm(-1),
         }}
       >
         {post.frontmatter.date}
       </p>
-      <hr
-        style={{
-          marginBottom: rhythm(1),
-        }}
-      />
+      <hr style={{}} />
       <ul
         style={{
           display: `flex`,

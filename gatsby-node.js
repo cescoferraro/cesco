@@ -80,7 +80,7 @@ function createNewsPages(result, createPage) {
 }
 function createPortifolio(result, createPage) {
   const newsTemplate = path.resolve(`./src/templates/portifolio-post.tsx`)
-  // const key = "portifolio"
+  const key = "portifolio"
   const projects = result.data.portifolio.edges
   projects.forEach((post, index) => {
     const previous =
@@ -89,7 +89,7 @@ function createPortifolio(result, createPage) {
     let categorie = post.node.frontmatter.categorie
     console.log(post, categorie)
     createPage({
-      path: `${categorie}${post.node.fields.slug}`,
+      path: `${key}${post.node.fields.slug}`,
       component: newsTemplate,
       context: {
         slug: post.node.fields.slug,

@@ -3,7 +3,6 @@ import * as React from "react"
 
 import Button from "../components/Button/button"
 import { BlogQueryQuery } from "../global"
-import { rhythm } from "../utils/typography"
 
 const News = (props: { data?: BlogQueryQuery }): React.ReactElement => {
   const { data } = props
@@ -16,9 +15,7 @@ const News = (props: { data?: BlogQueryQuery }): React.ReactElement => {
           return (
             <div key={index}>
               <a
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
+                style={{}}
                 onClick={() => {
                   navigate("/news" + node.fields.slug)
                 }}

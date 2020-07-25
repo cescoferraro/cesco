@@ -37,12 +37,11 @@ export const ActualLayout = ({
         toggleLightMode={toggleLightMode}
       />
       <Waypoint
+        bottomOffset={-300}
         onEnter={() => setDrawerOpen(false)}
         onLeave={() => setDrawerOpen(true)}
       />
-      <div className={classes.root}>
-        <main>{children}</main>
-      </div>
+      <main className={classes.root}>{children}</main>
       <Footer />
     </div>
   )

@@ -1,12 +1,15 @@
+import { Hidden } from "@material-ui/core"
 import MenuItem from "@material-ui/core/MenuItem"
 import Select from "@material-ui/core/Select"
 import Tab from "@material-ui/core/Tab"
 import Tabs from "@material-ui/core/Tabs"
 import { navigate } from "gatsby"
 import * as React from "react"
+import Masonry from "react-masonry-css"
 import { Maybe, MdxFrontmatter } from "../../global"
 import { withTrans } from "../../i18n/withTrans"
 import { HomeTitleComponent } from "./title"
+import "./index.css"
 
 const a11yProps = (index) => ({
   id: `simple-tab-${index}`,
@@ -30,56 +33,67 @@ export const HomePage = withTrans(
     return (
       <React.Fragment>
         <HomeTitleComponent />
-        <Tabs
-          value={value}
-          onChange={(event, newValue) => setValue(newValue)}
-          aria-label="simple tabs example"
+        <Hidden smDown>
+          <Tabs
+            value={value}
+            onChange={(event, newValue) => setValue(newValue)}
+            aria-label="simple tabs example"
+          >
+            {categories.map((d, index) => {
+              return <Tab key={index} label={d} {...a11yProps(index)} />
+            })}
+          </Tabs>
+        </Hidden>
+        <Hidden smUp>
+          <Select
+            value={value}
+            onChange={(er) => {
+              setValue(Number(er.target.value))
+            }}
+          >
+            {categories.map((d, index) => {
+              return (
+                <MenuItem key={index} value={index}>
+                  {d}
+                </MenuItem>
+              )
+            })}
+          </Select>
+        </Hidden>
+        <Masonry
+          breakpointCols={{ default: 2, 700: 1 }}
+          className="global-home-grid"
+          columnClassName="global-home-grid-column"
         >
-          {categories.map((d, index) => {
-            return <Tab key={index} label={d} {...a11yProps(index)} />
-          })}
-        </Tabs>
-        <Select
-          value={value}
-          onChange={(er) => {
-            setValue(Number(er.target.value))
-          }}
-        >
-          {categories.map((d, index) => {
-            return (
-              <MenuItem key={index} value={index}>
-                {d}
-              </MenuItem>
-            )
-          })}
-        </Select>
-        <div>
           {Object.keys(projects).map((key, index) => {
             const inner = projects[key] || []
             return (
               <React.Fragment key={index}>
-                {inner.map((tile, idx) => {
-                  console.log(tile)
-                  return (
-                    <div
-                      key={idx}
-                      onClick={() => {
-                        navigate(tile.categorie + tile.slug)
-                      }}
-                    >
+                {inner
+                  .filter((tile, idx) => idx === value)
+                  .map((tile, idx) => {
+                    console.log(tile)
+                    return (
                       <img
-                        alt={"cat-image" + index.toString()}
-                        style={{ maxWidth: 200, maxHeight: 200 }}
-                        src={require("../../../content/" + tile.image)}
+                        key={idx}
+                        src={`${require("../../../content/" + tile.image)}`}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          maxHeight: 300,
+                          backgroundSize: "cover",
+                          backgroundRepeat: "no-repeat",
+                        }}
+                        onClick={() => {
+                          navigate(tile.categorie + tile.slug)
+                        }}
                       />
-                      <h2>SDKFJN</h2>
-                    </div>
-                  )
-                })}
+                    )
+                  })}
               </React.Fragment>
             )
           })}
-        </div>
+        </Masonry>
       </React.Fragment>
     )
   },
