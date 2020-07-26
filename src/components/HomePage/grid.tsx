@@ -11,7 +11,7 @@ interface Props {
 
 export const HomeGrid = ({ projects, value }: Props): React.ReactElement => {
   return (
-    <Box style={{ paddingBottom: 300, paddingTop: 30 }}>
+    <Box style={{ width: "100%", paddingBottom: 300, paddingTop: 30 }}>
       {Object.keys(projects).map((key, index) => {
         const inner = projects[key]
         console.log("inner")
