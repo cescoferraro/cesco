@@ -58,3 +58,10 @@ collections:
       - { name: date, label: Date, widget: date }
       - { name: name, label: Title }
       - { name: job, label: Description }
+      - label: "Image"
+        name: "image"
+        widget: "image"
+        default: "/uploads/chocolate-dogecoin.jpg"
+        media_library:
+          config:
+            multiple: true

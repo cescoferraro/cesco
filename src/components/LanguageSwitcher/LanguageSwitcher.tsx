@@ -1,7 +1,9 @@
-import React, { Fragment } from "react"
 import { Box } from "@material-ui/core"
-import { makeStyles, createStyles } from "@material-ui/core/styles"
+import { createStyles, makeStyles } from "@material-ui/core/styles"
+import Typography from "@material-ui/core/Typography"
 import * as cs from "classnames"
+import { useI18next } from "gatsby-plugin-react-i18next"
+import React, { Fragment } from "react"
 
 export const useStylesClasses = makeStyles(() =>
   createStyles({
@@ -14,23 +16,27 @@ export const useStylesClasses = makeStyles(() =>
       fontSize: 12,
       height: 30,
       width: 30,
-      background: "white",
+      background: "transparent",
       borderRadius: 0,
       border: "none",
       outline: "none !important",
       "&:hover": {
-        background: "white",
+        background: "transparent",
         boxShadow: "0px 0px 0px 2px #FFCC00 inset",
       },
     },
     active: {
       fontSize: 12,
       height: 30,
+      color: "black",
       width: 30,
       background: "#FFCC00",
       borderRadius: 0,
       border: "none",
       outline: "none !important",
+      "& p": {
+        color: "black",
+      },
       "&:hover": {
         background: "#FFCC00",
         boxShadow: "0px 0px 0px 2px #FFCC00 inset",
@@ -39,40 +45,36 @@ export const useStylesClasses = makeStyles(() =>
   }),
 )
 
-export function LanguageSwitcher(): React.ReactElement {
+interface Props {
+  style?: React.CSSProperties
+}
+
+export const LanguageSwitcher = ({ style }: Props): React.ReactElement => {
   const classes = useStylesClasses()
-
-  const [state, setState] = React.useState({
-    PT: true,
-    EN: false,
-  })
-
+  const { changeLanguage, language } = useI18next()
+  // const [language, setState] = React.useState(language)
   const handleChangePT = () => {
-    setState({ PT: true, EN: false })
+    void changeLanguage("pt")
   }
-
   const handleChangeEN = () => {
-    setState({ PT: false, EN: true })
+    void changeLanguage("en")
   }
-
   const { inactive, active } = useStylesClasses()
-  const PTButtonClass = cs({
-    [inactive]: state.EN,
-    [active]: state.PT,
-  })
+  const isEnglish = language === "en"
+  const isPortuguese = language === "pt"
+  const PTButtonClass = cs({ [inactive]: isEnglish, [active]: isPortuguese })
   const ENButtonClass = cs({
-    [inactive]: !state.EN,
-    [active]: !state.PT,
+    [inactive]: !isEnglish,
+    [active]: !isPortuguese,
   })
-
   return (
     <Fragment>
-      <Box className={classes.box}>
+      <Box style={style} className={classes.box}>
         <button onClick={handleChangePT} className={PTButtonClass}>
-          PT
+          <Typography>PT</Typography>
         </button>
         <button onClick={handleChangeEN} className={ENButtonClass}>
-          EN
+          <Typography>EN</Typography>
         </button>
       </Box>
     </Fragment>

@@ -1,10 +1,11 @@
 import { Container, Hidden } from "@material-ui/core"
 import Box from "@material-ui/core/Box"
-import { Link } from "gatsby"
+import { Link } from "gatsby-plugin-react-i18next"
 import React, { Fragment } from "react"
 import { LightMode } from "shared/theme"
 import logoblack from "../../../static/logo-black.png"
 import logo from "../../../static/logo-white.png"
+import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher"
 import { TabComponent } from "../TabComponent/drawerItem"
 import { ThemeSwitch } from "../ThemeSwitch/switch"
 
@@ -27,7 +28,6 @@ const LayoutHeader = ({
             display: "flex",
             maxWidth: "1280px",
             alignItems: "flex-end",
-            padding: "0px 120px",
             height: 155,
           }}
         >
@@ -56,6 +56,8 @@ const LayoutHeader = ({
               <TabComponent page={"/team"} uri={uri} label={"TEAM"} />
               <TabComponent page={"/clients"} uri={uri} label={"CLIENTES"} />
               <TabComponent page={"/contact"} uri={uri} label={"CONTACT"} />
+              <br />
+              <LanguageSwitcher style={{ paddingLeft: 24 }} />
             </ul>
           </Container>
           <Box

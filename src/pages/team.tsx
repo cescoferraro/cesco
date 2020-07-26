@@ -1,36 +1,18 @@
-import { Typography } from "@material-ui/core"
-import { graphql, Link } from "gatsby"
+import { WithWidthProps } from "@material-ui/core"
+import withWidth from "@material-ui/core/withWidth"
+import { graphql } from "gatsby"
 import * as React from "react"
-
-import Button from "../components/Button/button"
+import { TeamPage } from "../components/TeamPage/teamPage"
 import { TeamQueryQuery } from "../global"
 
-const About = (props: { data?: TeamQueryQuery }): React.ReactElement => {
-  console.log(props)
-  const posts = props.data.allMdx.edges
-  return (
-    <React.Fragment>
-      <Typography>Team</Typography>
-      <div style={{ margin: "20px 0 40px" }}>
-        {[...posts, ...posts, ...posts].map(({ node }, index: number) => {
-          const title = node.frontmatter.name || node.fields.slug
-          const job = node.frontmatter.job || node.fields.slug
-          return (
-            <div key={index}>
-              <Typography>{title}</Typography>
-              <Typography>{job}</Typography>
-            </div>
-          )
-        })}
-      </div>
-      <Link to="/">
-        <Button>Go Home</Button>
-      </Link>
-    </React.Fragment>
-  )
-}
+const Team = withWidth()(
+  (props: { data?: TeamQueryQuery } & WithWidthProps): React.ReactElement => {
+    return <TeamPage employees={props.data.allMdx.edges} />
+  },
+)
 
-export default About
+export default Team
+
 export const pageQuery = graphql`
   query TeamQuery {
     site {
@@ -50,6 +32,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             name
             job
+            image
           }
         }
       }

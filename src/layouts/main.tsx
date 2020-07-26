@@ -1,3 +1,4 @@
+import { Container } from "@material-ui/core"
 import * as React from "react"
 import { Waypoint } from "react-waypoint"
 import LayoutHeader from "../components/LayoutHeader/layoutHeader"
@@ -40,7 +41,7 @@ export const ActualLayout = ({
         onEnter={() => setDrawerOpen(false)}
         onLeave={() => setDrawerOpen(true)}
       />
-      <main className={classes.root}>{children}</main>
+      <Container className={classes.root}>{children}</Container>
       {/*<Footer />*/}
     </div>
   )

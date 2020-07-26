@@ -9,8 +9,6 @@ const PortifolioPostTemplate = (props: {
 }): React.ReactElement => {
   const post = props.data.mdx
   const { previous, next } = props.pageContext
-  console.log(props.pageContext)
-
   return (
     <React.Fragment>
       <h1>{post.frontmatter.title}</h1>

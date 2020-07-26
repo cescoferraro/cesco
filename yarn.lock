@@ -5706,6 +5706,11 @@ brorand@^1.0.1:
   resolved "https://registry.yarnpkg.com/brorand/-/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"
   integrity sha1-EsJe/kCkXjwyPrhnWgoM5XsiNx8=
 
+browser-lang@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/browser-lang/-/browser-lang-0.1.0.tgz#da9bb26e4f82b4385a51054af5495f6a9de475f7"
+  integrity sha512-p4mdcU9fIsoDtbAVorKtxo5H86mK040MYn96yshyhfN3OF0iySuITgR8IxldI72MJAultMnwqDgwfWWwjUrSsw==
+
 browser-process-hrtime@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/browser-process-hrtime/-/browser-process-hrtime-1.0.0.tgz#3c9b4b7d782c8121e56f10106d84c0d0ffc94626"
@@ -9977,6 +9982,18 @@ gatsby-plugin-react-helmet@^3.0.12:
   dependencies:
     "@babel/runtime" "^7.10.3"
 
+gatsby-plugin-react-i18next@0.0.24:
+  version "0.0.24"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-i18next/-/gatsby-plugin-react-i18next-0.0.24.tgz#f7e5ca27906cefbe4f740f34f5f1c81e8508488f"
+  integrity sha512-PpT9+vddpCqcnKYEx20taibaga8mhIZtLxThbN+srk8TM3XdyA7JHZCpSi1eM7qTanIMfnHgOdNxDQ2gZsjJ5A==
+  dependencies:
+    bluebird "^3.7.2"
+    browser-lang "^0.1.0"
+    glob "^7.1.6"
+    path-to-regexp "^6.1.0"
+  optionalDependencies:
+    react-helmet "^6.1.0"
+
 gatsby-plugin-root-import@2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-root-import/-/gatsby-plugin-root-import-2.0.5.tgz#04e520dc661d67f49aa7950f11b7c780fd2fdbd3"
@@ -10025,13 +10042,6 @@ gatsby-plugin-typescript@^2.4.16, gatsby-plugin-typescript@^2.4.6:
     "@babel/preset-typescript" "^7.10.1"
     "@babel/runtime" "^7.10.3"
     babel-plugin-remove-graphql-queries "^2.9.15"
-
-gatsby-plugin-typography@^2.2.13:
-  version "2.5.10"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-typography/-/gatsby-plugin-typography-2.5.10.tgz#ef4672f105cb85a2346ebcdba55a1d3af58234e7"
-  integrity sha512-5ds0l4oOAZpe8XDxcfQOaR5LDIJ5VN/tIwr2KqD5NOukOFpQ0aayvH8tDp3M+gT63VibiW0f+eCxtvpjYIfpDg==
-  dependencies:
-    "@babel/runtime" "^7.10.3"
 
 gatsby-react-router-scroll@^3.0.12:
   version "3.0.12"
@@ -11552,10 +11562,10 @@ hyphenate-style-name@^1.0.3:
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz#691879af8e220aea5750e8827db4ef62a54e361d"
   integrity sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==
 
-i18next@19.6.2:
-  version "19.6.2"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-19.6.2.tgz#859aeba46db0c7cdfa8ae3de7c3a5cad3b0cec83"
-  integrity sha512-Zyd/Z32FY+sD+Eg6sLj5DeDSlrIN3WZ4onuOBRGcjDx/rvodsyUZ9TJ2Y+3aD9Vu8MPbiMU2WesIER/rs1ioyw==
+i18next@19.6.3:
+  version "19.6.3"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-19.6.3.tgz#ce2346161b35c4c5ab691b0674119c7b349c0817"
+  integrity sha512-eYr98kw/C5z6kY21ti745p4IvbOJwY8F2T9tf/Lvy5lFnYRqE45+bppSgMPmcZZqYNT+xO0N0x6rexVR2wtZZQ==
   dependencies:
     "@babel/runtime" "^7.10.1"
 
@@ -16369,6 +16379,11 @@ path-to-regexp@^1.7.0:
   dependencies:
     isarray "0.0.1"
 
+path-to-regexp@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-6.1.0.tgz#0b18f88b7a0ce0bfae6a25990c909ab86f512427"
+  integrity sha512-h9DqehX3zZZDCEm+xbfU0ZmwCGFCAAraPJWMXJ4+v32NjZJilVg3k1TcKsRgIb8IQ/izZSaydDc1OhJCZvs2Dw==
+
 path-type@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-1.1.0.tgz#59c44f7ee491da704da415da5a4070ba4f8fe441"
@@ -17663,7 +17678,7 @@ react-fast-compare@^2.0.2:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
 
-react-fast-compare@^3.0.1:
+react-fast-compare@^3.0.1, react-fast-compare@^3.1.1:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
@@ -17712,6 +17727,16 @@ react-helmet@^5.2.0:
     prop-types "^15.5.4"
     react-fast-compare "^2.0.2"
     react-side-effect "^1.1.0"
+
+react-helmet@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/react-helmet/-/react-helmet-6.1.0.tgz#a750d5165cb13cf213e44747502652e794468726"
+  integrity sha512-4uMzEY9nlDlgxr61NL3XbKRy1hEkXmKNXhjbAIOVw5vcFrsdYbH2FEwcNyWvWinl103nXgzYNlns9ca+8kFiWw==
+  dependencies:
+    object-assign "^4.1.1"
+    prop-types "^15.7.2"
+    react-fast-compare "^3.1.1"
+    react-side-effect "^2.1.0"
 
 react-hot-loader@^4.12.21, react-hot-loader@^4.8.0:
   version "4.12.21"
@@ -17932,6 +17957,11 @@ react-side-effect@^1.1.0:
   integrity sha512-v1ht1aHg5k/thv56DRcjw+WtojuuDHFUgGfc+bFHOWsF4ZK6C2V57DO0Or0GPsg6+LSTE0M6Ry/gfzhzSwbc5w==
   dependencies:
     shallowequal "^1.0.1"
+
+react-side-effect@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-2.1.0.tgz#1ce4a8b4445168c487ed24dab886421f74d380d3"
+  integrity sha512-IgmcegOSi5SNX+2Snh1vqmF0Vg/CbkycU9XZbOHJlZ6kMzTmi3yc254oB1WCkgA7OQtIAoLmcSFuHTc/tlcqXg==
 
 react-sizeme@^2.6.7:
   version "2.6.12"

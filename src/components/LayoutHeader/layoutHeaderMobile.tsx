@@ -125,9 +125,9 @@ const LayoutHeaderMobile = ({
             </Link>
           </Container>
           <button className={classes.menuIcon} onClick={() => showNav(!nav)}>
-            <div className={divIcon}></div>
-            <div className={divIcon}></div>
-            <div className={divIcon}></div>
+            <div className={divIcon} />
+            <div className={divIcon} />
+            <div className={divIcon} />
           </button>
           <Container className={className}>
             <ul style={{ margin: 16 }}>

@@ -44,23 +44,7 @@ let s = `
     }
   `
 
-// function extracted(key, posts, createPage, blogPost) {
-//   posts.forEach((post, index) => {
-//     const previous = index === posts.length - 1 ? null : posts[index + 1].node
-//     const next = index === 0 ? null : posts[index - 1].node
-//     createPage({
-//       path: `${key}${post.node.fields.slug}`,
-//       component: blogPost,
-//       context: {
-//         slug: post.node.fields.slug,
-//         previous,
-//         next,
-//       },
-//     })
-//   })
-// }
-
-function createNewsPages(result, createPage) {
+const createNewsPages = (result, createPage) => {
   const newsTemplate = path.resolve(`./src/templates/news-post.tsx`)
   const key = "news"
   const news = result.data.news.edges
@@ -78,7 +62,8 @@ function createNewsPages(result, createPage) {
     })
   })
 }
-function createPortifolio(result, createPage) {
+
+const createPortifolio = (result, createPage) => {
   const newsTemplate = path.resolve(`./src/templates/portifolio-post.tsx`)
   const key = "portifolio"
   const projects = result.data.portifolio.edges
@@ -86,8 +71,6 @@ function createPortifolio(result, createPage) {
     const previous =
       index === projects.length - 1 ? null : projects[index + 1].node
     const next = index === 0 ? null : projects[index - 1].node
-    let categorie = post.node.frontmatter.categorie
-    console.log(post, categorie)
     createPage({
       path: `${key}${post.node.fields.slug}`,
       component: newsTemplate,

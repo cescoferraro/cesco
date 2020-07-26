@@ -4,16 +4,35 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 import { useStylesClasses } from "./LanguageSwitcher"
 
-export const LanguageMenu = (): React.ReactElement => {
+export const LanguageMenu = ({
+  style,
+}: {
+  style?: React.CSSProperties
+}): React.ReactElement => {
   const x = useTranslation()
   const { inactive, active, box } = useStylesClasses()
   const [language, setLanguage] = React.useState("pt-BR")
   const handleChangePT = () => {
-    x.i18n.changeLanguage("pt-BR")
+    x.i18n
+      .changeLanguage("pt-BR")
+      .catch((e) => {
+        console.log(e)
+      })
+      .then(() => {
+        console.log("yay")
+      })
     setLanguage("pt-BR")
   }
   const handleChangeEN = () => {
-    x.i18n.changeLanguage("en")
+    x.i18n
+      .changeLanguage("en")
+      .catch((e) => {
+        console.log(e)
+      })
+      .then(() => {
+        console.log("yay")
+      })
+
     setLanguage("en")
   }
   const isEnglish = language === "en"
@@ -21,7 +40,7 @@ export const LanguageMenu = (): React.ReactElement => {
   const PTButtonClass = cs({ [inactive]: isEnglish, [active]: isPortuguese })
   const ENButtonClass = cs({ [inactive]: isPortuguese, [active]: isEnglish })
   return (
-    <Box className={box}>
+    <Box style={style} className={box}>
       <button className={PTButtonClass} onClick={() => handleChangePT()}>
         PT
       </button>
@@ -31,5 +50,3 @@ export const LanguageMenu = (): React.ReactElement => {
     </Box>
   )
 }
-
-export default LanguageMenu

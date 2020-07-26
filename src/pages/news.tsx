@@ -1,7 +1,6 @@
-import { graphql, Link, navigate } from "gatsby"
+import { Typography } from "@material-ui/core"
+import { graphql, navigate } from "gatsby"
 import * as React from "react"
-
-import Button from "../components/Button/button"
 import { BlogQueryQuery } from "../global"
 
 const News = (props: { data?: BlogQueryQuery }): React.ReactElement => {
@@ -14,27 +13,19 @@ const News = (props: { data?: BlogQueryQuery }): React.ReactElement => {
           const title = node.frontmatter.title || node.fields.slug
           return (
             <div key={index}>
-              <a
+              <Typography
                 style={{}}
                 onClick={() => {
                   navigate("/news" + node.fields.slug)
                 }}
               >
                 {title}
-              </a>
-              <small>{node.frontmatter.date}</small>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
+              </Typography>
+              <Typography>{node.frontmatter.date}</Typography>
             </div>
           )
         })}
       </div>
-      <Link to="/">
-        <Button>Go Home</Button>
-      </Link>
     </React.Fragment>
   )
 }

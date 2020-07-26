@@ -120,9 +120,31 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        path: `${__dirname}/src/locales`,
+        languages: [`en`, `pt`],
+        defaultLanguage: `pt`,
+        i18nextOptions: {
+          language: "pt",
+          ns: ["translations"],
+          defaultNS: "translations",
+          returnObjects: true,
+          debug: process.env.NODE_ENV === "development",
+          react: {
+            wait: true,
+          },
+          interpolation: {
+            escapeValue: false, // not needed for react as it escapes by default
+          },
+          nsSeparator: false,
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
-        codegen: false,
+        codegen: true,
         fileName: `src/global.ts`,
       },
     },

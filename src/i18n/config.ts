@@ -1,27 +1,18 @@
 import i18next from "i18next"
+import en from "../locales/en/translations.json"
+import pt from "../locales/pt/translations.json"
 
 i18next.init({
   fallbackLng: "pt-BR",
-  resources: {
-    "pt-BR": {
-      translations: require("../locales/translations.json").pt,
-    },
-    en: {
-      translations: require("../locales/translations.json").en,
-    },
-  },
+  resources: { pt: { translations: pt }, en: { translations: en } },
   ns: ["translations"],
   defaultNS: "translations",
   returnObjects: true,
   debug: process.env.NODE_ENV === "development",
-  interpolation: {
-    escapeValue: false, // not needed for react!!
-  },
-  react: {
-    wait: true,
-  },
-})
+  interpolation: { escapeValue: false },
+  react: { wait: true },
+} as any)
 
-i18next.languages = ["pt-BR", "en"]
+i18next.languages = ["pt", "en"]
 
 export default i18next
